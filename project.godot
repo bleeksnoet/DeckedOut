@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Decked Out"
+run/main_scene="res://levels/test_level.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[physics]
+
+3d/default_gravity=10.0
 
 [rendering]
 
