@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ubvvejtk40f"]
+
+[ext_resource type="PackedScene" uid="uid://dxgsql8yh6824" path="res://Entities/Player/player.tscn" id="1_3lepq"]
+
+[node name="testroom" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_3lepq")]
+position = Vector2(312, 343)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
