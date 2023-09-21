@@ -8,6 +8,15 @@
 
 config_version=5
 
+[DeckedOutTopDown]
+
+config/achievements/local_source="res://"
+config/achievements/remote_source="https://"
+config/achievements/save_directory="/Users/maxdeheer/Library/Application Support/Godot/app_userdata/DeckedOutTopDown"
+config/achievements/save_file_name="achievements.json"
+config/achievements/password="jzdQkedOJ9VvwDYQYj9DQxuKN"
+config/godotenv/root_directory="res://"
+
 [application]
 
 config/name="DeckedOutTopDown"
@@ -20,6 +29,8 @@ config/icon="res://icon.svg"
 GodotEssentialsHelpers="*res://addons/2d_essentials/autoload/helpers.gd"
 GodotEssentialsAudio="*res://addons/2d_essentials/autoload/audio/audio.gd"
 GodotEssentialsSceneTransitioner="*res://addons/2d_essentials/autoload/scene_transitions/scene_transitioner.gd"
+GodotEssentialsAchievements="*res://addons/2d_essentials/autoload/achievements/achievements.tscn"
+GodotEssentialsEnvironment="*res://addons/2d_essentials/autoload/dotenv/godotenv.gd"
 
 [editor_plugins]
 
@@ -52,3 +63,9 @@ Jump={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/decals/filter=0
+textures/light_projectors/filter=0
