@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
-@export var speed = 400  # speed in pixels/sec
+@export var walkspeed = 400  # speed in pixels/sec
 @export var speedup = 200
+@export var jumpspeed = 200
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
+@onready var JumpTimer = $JumpTimer
+@onready var Collison = $PlayerCol
 @onready var animstate = animtree.get("parameters/playback")
 
 var direction = Vector2.ZERO
+var speed = walkspeed
 
 func _physics_process(delta):
 	movement()
@@ -28,4 +32,11 @@ func movement():
 	
 	
 	if Input.is_action_just_pressed("Jump"):
-		pass
+		Collison.disabled = true
+		speed = jumpspeed
+		animstate.travel("Jump")
+		JumpTimer.start()
+
+func _on_jump_timer_timeout():
+	speed = walkspeed
+	Collison.disabled = false
