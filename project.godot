@@ -64,6 +64,12 @@ Jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Solids"
+2d_physics/layer_2="PlayerDMG"
+2d_physics/layer_3="Enemies"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

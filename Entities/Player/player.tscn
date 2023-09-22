@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dxgsql8yh6824"]
+[gd_scene load_steps=37 format=3 uid="uid://dxgsql8yh6824"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_body.gd" id="1_ebfo8"]
 [ext_resource type="PackedScene" uid="uid://c4mxqxl2im8bf" path="res://Entities/Player/WeaponSystem.tscn" id="2_tby1m"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrv83"]
 size = Vector2(32, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03flu"]
+size = Vector2(32, 19)
 
 [sub_resource type="Animation" id="Animation_gpeu7"]
 resource_name = "Idle_East"
@@ -145,6 +148,34 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(16, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_dqjlo"]
+resource_name = "Jump"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [24, 25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 32), Vector2(16, 0), Vector2(16, 32)]
 }
 
 [sub_resource type="Animation" id="Animation_uv58o"]
@@ -326,34 +357,6 @@ tracks/1/keys = {
 "values": [Vector2(16, 32)]
 }
 
-[sub_resource type="Animation" id="Animation_dqjlo"]
-resource_name = "Jump"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [24, 25]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(16, 32), Vector2(16, 0), Vector2(16, 32)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxbst"]
 _data = {
 "Idle_East": SubResource("Animation_gpeu7"),
@@ -467,11 +470,19 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 3
+frame = 1
 
 [node name="PlayerCol" type="CollisionShape2D" parent="."]
 position = Vector2(16, 61.5)
 shape = SubResource("RectangleShape2D_xrv83")
+
+[node name="DMGChecker" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DMGChecker"]
+position = Vector2(16, 57.5)
+shape = SubResource("RectangleShape2D_03flu")
 
 [node name="WeaponSystem" parent="." instance=ExtResource("2_tby1m")]
 visible = false
@@ -494,4 +505,5 @@ parameters/Walk/blend_position = Vector2(0, 0)
 [node name="JumpTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="area_entered" from="DMGChecker" to="." method="_on_dmg_checker_area_entered"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
