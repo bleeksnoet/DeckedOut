@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var walkspeed = 400  # speed in pixels/sec
 @export var speedup = 200
-@export var jumpspeed = 200
+@export var jumpspeed = 120
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var JumpTimer = $JumpTimer
@@ -27,12 +27,11 @@ func _physics_process(delta):
 	Walking()
 	Idle()
 	move_and_slide()
-	print(HPmanager.current_health)
+	print(speed)
 
 #can go to idle and jumping
 func Walking():
 	if CurrentState == states.Walking:
-		speed = walkspeed
 		animtree.set("parameters/Idle/blend_position", direction)
 		animtree.set("parameters/Walk/blend_position", direction)
 		animstate.travel("Walk")
@@ -58,6 +57,7 @@ func Idle():
 
 #At the end of jump returns to Idle
 func Jumping():
+	speed = jumpspeed
 	Collison.disabled = true
 	animstate.travel("Jump")
 	if !JumpTimer.time_left > 0:

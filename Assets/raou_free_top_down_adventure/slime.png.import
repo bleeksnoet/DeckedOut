@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k2pgi5nwcnqr"
-path="res://.godot/imported/Dungeon.png-8d507dbb4c9a9bae696b80de4caa79b4.ctex"
+uid="uid://y3gbfe4aqyj7"
+path="res://.godot/imported/slime.png-d30981ee765e2f35d82f7ac3fc5361e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MiniTileset-Dungeon/Dungeon.png"
-dest_files=["res://.godot/imported/Dungeon.png-8d507dbb4c9a9bae696b80de4caa79b4.ctex"]
+source_file="res://Assets/raou_free_top_down_adventure/slime.png"
+dest_files=["res://.godot/imported/slime.png-d30981ee765e2f35d82f7ac3fc5361e8.ctex"]
 
 [params]
 
