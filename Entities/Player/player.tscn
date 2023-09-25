@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://dxgsql8yh6824"]
+[gd_scene load_steps=39 format=3 uid="uid://dxgsql8yh6824"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_body.gd" id="1_ebfo8"]
 [ext_resource type="PackedScene" uid="uid://c4mxqxl2im8bf" path="res://Entities/Player/WeaponSystem.tscn" id="2_tby1m"]
 [ext_resource type="Texture2D" uid="uid://7v8phfsmiyyg" path="res://Assets/Pixel-RPG_Prototype_v003/Sprites/Prototype/Prototype_Worksheet.png" id="3_8v5dp"]
+[ext_resource type="Script" path="res://addons/2d_essentials/survivability/health_component.gd" id="4_l4f41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrv83"]
 size = Vector2(32, 11)
@@ -357,8 +358,25 @@ tracks/1/keys = {
 "values": [Vector2(16, 32)]
 }
 
+[sub_resource type="Animation" id="Animation_1cprx"]
+resource_name = "Death"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxbst"]
 _data = {
+"Death": SubResource("Animation_1cprx"),
 "Idle_East": SubResource("Animation_gpeu7"),
 "Idle_North": SubResource("Animation_8omv0"),
 "Idle_South": SubResource("Animation_1x4mg"),
@@ -470,7 +488,6 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 1
 
 [node name="PlayerCol" type="CollisionShape2D" parent="."]
 position = Vector2(16, 61.5)
@@ -505,5 +522,11 @@ parameters/Walk/blend_position = Vector2(0, 0)
 [node name="JumpTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="area_entered" from="DMGChecker" to="." method="_on_dmg_checker_area_entered"]
+[node name="HPmanager" type="Node" parent="."]
+script = ExtResource("4_l4f41")
+max_health = 3
+current_health = 3
+
+[connection signal="body_entered" from="DMGChecker" to="." method="_on_dmg_checker_body_entered"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="died" from="HPmanager" to="." method="_on_hpmanager_died"]

@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animplayer = $AnimationPlayer
 @onready var JumpTimer = $JumpTimer
 @onready var Collison = $PlayerCol
+@onready var HPmanager = $HPmanager
 @onready var animstate = animtree.get("parameters/playback")
 
 var direction = Vector2.ZERO
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	Walking()
 	Idle()
 	move_and_slide()
-	print(CurrentState)
+	print(HPmanager.current_health)
 
 #can go to idle and jumping
 func Walking():
@@ -67,6 +68,8 @@ func _on_jump_timer_timeout():
 	Collison.disabled = false
 	CurrentState = states.Idle
 
+func _on_hpmanager_died():
+	animplayer.play("Death")
 
-func _on_dmg_checker_area_entered(area):
-	pass # Replace with function body.
+func _on_dmg_checker_body_entered(body):
+	HPmanager.damage(1)
