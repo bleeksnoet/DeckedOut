@@ -488,7 +488,7 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 2
+frame = 3
 
 [node name="JumpCol" type="CollisionShape2D" parent="."]
 position = Vector2(16, 61.5)
