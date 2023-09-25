@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var JumpTimer = $JumpTimer
-@onready var Collison = $PlayerCol
+@onready var Collison = $JumpCol
 @onready var HPmanager = $HPmanager
 @onready var animstate = animtree.get("parameters/playback")
 

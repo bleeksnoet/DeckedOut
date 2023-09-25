@@ -69,6 +69,7 @@ Jump={
 2d_physics/layer_1="Solids"
 2d_physics/layer_2="PlayerDMG"
 2d_physics/layer_3="Enemies"
+2d_physics/layer_4="JumpAbles"
 
 [rendering]
 
