@@ -6,8 +6,10 @@ extends CharacterBody2D
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var JumpTimer = $JumpTimer
-@onready var Collison = $JumpCol
+@onready var Collison = $Wallcol
 @onready var HPmanager = $HPmanager
+@onready var JumpCol = $JumpcolChecker/JumpCol
+@onready var HPBar = $HPBar
 @onready var animstate = animtree.get("parameters/playback")
 
 var direction = Vector2.ZERO
@@ -19,6 +21,9 @@ enum states {
 	Falling
 }
 var CurrentState = states.Idle
+
+func _ready():
+	HPBar.max_value = HPmanager.max_health
 
 func _physics_process(delta):
 	direction.x = Input.get_action_strength("Walk_East") - Input.get_action_strength("Walk_West")
@@ -58,18 +63,19 @@ func Idle():
 #At the end of jump returns to Idle
 func Jumping():
 	speed = jumpspeed
-	Collison.disabled = true
+	JumpCol.disabled = true
 	animstate.travel("Jump")
 	if !JumpTimer.time_left > 0:
 		JumpTimer.start()
 
 func _on_jump_timer_timeout():
 	speed = walkspeed
-	Collison.disabled = false
+	JumpCol.disabled = false
 	CurrentState = states.Idle
 
 func _on_hpmanager_died():
 	animplayer.play("Death")
 
 func _on_dmg_checker_body_entered(body):
+	HPBar.value = HPmanager.current_health
 	HPmanager.damage(1)
