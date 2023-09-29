@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var walkspeed = 400  # speed in pixels/sec
 @export var speedup = 200
-@export var jumpspeed = 120
+@export var jumpspeed = 200
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var JumpTimer = $JumpTimer
@@ -14,7 +14,6 @@ extends CharacterBody2D
 
 var direction = Vector2.ZERO
 var speed = walkspeed
-
 enum states {
 	Idle,
 	Walking,
@@ -29,10 +28,10 @@ func _physics_process(delta):
 	direction.x = Input.get_action_strength("Walk_East") - Input.get_action_strength("Walk_West")
 	direction.y = Input.get_action_strength("Walk_South") - Input.get_action_strength("Walk_North")
 	direction = direction.normalized()
+	
 	Walking()
 	Idle()
 	move_and_slide()
-	print(speed)
 
 #can go to idle and jumping
 func Walking():
@@ -74,8 +73,14 @@ func _on_jump_timer_timeout():
 	CurrentState = states.Idle
 
 func _on_hpmanager_died():
-	animplayer.play("Death")
+	print("yes")
+	animstate.travel("Death")
 
 func _on_dmg_checker_body_entered(body):
 	HPBar.value = HPmanager.current_health
 	HPmanager.damage(1)
+
+
+func _on_jumpcol_checker_body_entered(body):
+	HPBar.value = HPmanager.current_health
+	HPmanager.damage(HPmanager.max_health)

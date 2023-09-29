@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dxgsql8yh6824"]
+[gd_scene load_steps=44 format=3 uid="uid://dxgsql8yh6824"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_body.gd" id="1_ebfo8"]
 [ext_resource type="PackedScene" uid="uid://c4mxqxl2im8bf" path="res://Entities/Player/WeaponSystem.tscn" id="2_tby1m"]
@@ -9,6 +9,9 @@
 size = Vector2(32, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03flu"]
+size = Vector2(32, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kl6i"]
 size = Vector2(32, 19)
 
 [sub_resource type="Animation" id="Animation_1cprx"]
@@ -438,14 +441,15 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_m6spc")
 blend_point_3/pos = Vector2(-1, 0)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j6c8x"]
+animation = &"Death"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4vsia"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cdu62"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4we3a"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3svad"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nlk5o"]
 switch_mode = 2
@@ -459,22 +463,37 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hdtnh"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_30udn"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0eqve"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uydcw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a1y1q"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1ydej"]
-states/End/position = Vector2(899, 99.875)
+states/End/position = Vector2(371.742, 43.875)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_w1f3b")
-states/Idle/position = Vector2(384.5, 99.75)
+states/Idle/position = Vector2(158.188, 212.719)
 states/Jump/node = SubResource("AnimationNodeAnimation_q63qp")
-states/Jump/position = Vector2(508.5, -77)
-states/Start/position = Vector2(508.5, 24.5)
+states/Jump/position = Vector2(582, 213.312)
+states/Start/position = Vector2(23.0938, 211.5)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_xbadv")
-states/Walk/position = Vector2(648, 101)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_4vsia"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cdu62"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4we3a"), "Start", "Walk", SubResource("AnimationNodeStateMachineTransition_3svad"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_nlk5o"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_lp4og"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_suc4s"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_hdtnh")]
-graph_offset = Vector2(9, -91)
+states/Walk/position = Vector2(372.438, 295.609)
+states/ded/node = SubResource("AnimationNodeAnimation_j6c8x")
+states/ded/position = Vector2(372.09, 128)
+transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_4vsia"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cdu62"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4we3a"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_nlk5o"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_lp4og"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_suc4s"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_hdtnh"), "ded", "End", SubResource("AnimationNodeStateMachineTransition_30udn"), "Jump", "ded", SubResource("AnimationNodeStateMachineTransition_0eqve"), "Idle", "ded", SubResource("AnimationNodeStateMachineTransition_uydcw"), "Walk", "ded", SubResource("AnimationNodeStateMachineTransition_a1y1q")]
+graph_offset = Vector2(-87, 51)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ebfo8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 y_sort_enabled = true
 offset_top = 56.0
 offset_right = 32.0
@@ -488,7 +507,6 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 3
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
 position = Vector2(16, 61.5)
@@ -503,12 +521,13 @@ position = Vector2(16, 57.5)
 shape = SubResource("RectangleShape2D_03flu")
 
 [node name="JumpcolChecker" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 4
+collision_layer = 0
+collision_mask = 8
 
 [node name="JumpCol" type="CollisionShape2D" parent="JumpcolChecker"]
 position = Vector2(16, 57.5)
-shape = SubResource("RectangleShape2D_03flu")
+shape = SubResource("RectangleShape2D_3kl6i")
+debug_color = Color(0.929412, 0.141176, 0.54902, 1)
 
 [node name="WeaponSystem" parent="." instance=ExtResource("2_tby1m")]
 visible = false
@@ -543,6 +562,6 @@ offset_right = 50.0
 value = 100.0
 
 [connection signal="body_entered" from="DMGChecker" to="." method="_on_dmg_checker_body_entered"]
-[connection signal="body_entered" from="JumpcolChecker" to="." method="_on_dmg_checker_body_entered"]
+[connection signal="body_entered" from="JumpcolChecker" to="." method="_on_jumpcol_checker_body_entered"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
 [connection signal="died" from="HPmanager" to="." method="_on_hpmanager_died"]
