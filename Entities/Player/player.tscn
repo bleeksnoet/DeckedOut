@@ -1,18 +1,18 @@
 [gd_scene load_steps=44 format=3 uid="uid://dxgsql8yh6824"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_body.gd" id="1_ebfo8"]
-[ext_resource type="PackedScene" uid="uid://c4mxqxl2im8bf" path="res://Entities/Player/WeaponSystem.tscn" id="2_tby1m"]
 [ext_resource type="Texture2D" uid="uid://7v8phfsmiyyg" path="res://Assets/Pixel-RPG_Prototype_v003/Sprites/Prototype/Prototype_Worksheet.png" id="3_8v5dp"]
 [ext_resource type="Script" path="res://addons/2d_essentials/survivability/health_component.gd" id="4_l4f41"]
+[ext_resource type="Texture2D" uid="uid://8cf4sc4cgkhd" path="res://Assets/LightSprite.png" id="4_ppj01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrv83"]
 size = Vector2(32, 11)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_03flu"]
-size = Vector2(32, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg3ta"]
+radius = 123.004
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kl6i"]
-size = Vector2(32, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggn84"]
+radius = 76.0263
 
 [sub_resource type="Animation" id="Animation_1cprx"]
 resource_name = "Death"
@@ -490,10 +490,10 @@ transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-87, 51)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_ebfo8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 y_sort_enabled = true
 offset_top = 56.0
 offset_right = 32.0
@@ -512,27 +512,18 @@ vframes = 12
 position = Vector2(16, 61.5)
 shape = SubResource("RectangleShape2D_xrv83")
 
-[node name="DMGChecker" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 4
+[node name="Sneaky" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DMGChecker"]
-position = Vector2(16, 57.5)
-shape = SubResource("RectangleShape2D_03flu")
+[node name="maincol" type="CollisionShape2D" parent="Sneaky"]
+position = Vector2(16, 39)
+shape = SubResource("CircleShape2D_dg3ta")
 
-[node name="JumpcolChecker" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-
-[node name="JumpCol" type="CollisionShape2D" parent="JumpcolChecker"]
-position = Vector2(16, 57.5)
-shape = SubResource("RectangleShape2D_3kl6i")
-debug_color = Color(0.929412, 0.141176, 0.54902, 1)
-
-[node name="WeaponSystem" parent="." instance=ExtResource("2_tby1m")]
-visible = false
-y_sort_enabled = true
-position = Vector2(16, 32)
+[node name="Sneakcol" type="CollisionShape2D" parent="Sneaky"]
+position = Vector2(16, 39)
+shape = SubResource("CircleShape2D_ggn84")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -547,9 +538,6 @@ active = true
 parameters/Idle/blend_position = Vector2(0, 0.978214)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="JumpTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="HPmanager" type="Node" parent="."]
 script = ExtResource("4_l4f41")
 max_health = 3
@@ -560,8 +548,12 @@ offset_left = -18.0
 offset_top = -27.0
 offset_right = 50.0
 value = 100.0
+metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="DMGChecker" to="." method="_on_dmg_checker_body_entered"]
-[connection signal="body_entered" from="JumpcolChecker" to="." method="_on_jumpcol_checker_body_entered"]
-[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[node name="Vision" type="PointLight2D" parent="."]
+position = Vector2(15, 62)
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("4_ppj01")
+
 [connection signal="died" from="HPmanager" to="." method="_on_hpmanager_died"]
