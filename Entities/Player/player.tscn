@@ -490,10 +490,9 @@ transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-87, 51)
 
 [node name="Player" type="CharacterBody2D"]
-y_sort_enabled = true
 script = ExtResource("1_ebfo8")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Shadow" type="ColorRect" parent="."]
 y_sort_enabled = true
 offset_top = 56.0
 offset_right = 32.0
@@ -507,6 +506,7 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
+frame = 1
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
 position = Vector2(16, 61.5)
@@ -552,6 +552,7 @@ metadata/_edit_lock_ = true
 
 [node name="Vision" type="PointLight2D" parent="."]
 position = Vector2(15, 62)
+scale = Vector2(1.5, 1.5)
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_ppj01")
