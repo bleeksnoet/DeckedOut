@@ -25,6 +25,8 @@ func _physics_process(delta):
 	direction.x = Input.get_action_strength("Walk_East") - Input.get_action_strength("Walk_West")
 	direction.y = Input.get_action_strength("Walk_South") - Input.get_action_strength("Walk_North")
 	direction = direction.normalized()
+	var mpos = get_global_mouse_position()
+	$VisionCone.look_at(mpos)
 	
 	Walking()
 	Sneaking()

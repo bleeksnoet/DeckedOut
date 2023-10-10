@@ -8,6 +8,7 @@ radius = 69.0072
 [node name="Detection" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_dab7y")

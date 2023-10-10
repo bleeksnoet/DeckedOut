@@ -19,11 +19,10 @@ enum states{
 var currentstate = states.Stationary
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animstate.travel("Idle")
+	pass
 
 func _physics_process(delta):
-	print(LookTimer.time_left)
-	animtree.set("parameters/Idle/blend_position", velocity)
+#	animtree.set("parameters/Idle/blend_position", velocity)
 	animtree.set("parameters/Walking/blend_position", velocity)
 	
 	var direction = Vector2()
@@ -40,13 +39,14 @@ func _physics_process(delta):
 	if currentstate == states.Stationary:
 		if LookTimer.time_left == 0:
 			LookTimer.start()
-		animstate.travel("Idle")
 		
 	velocity = direction * speed
 	
 	move_and_slide()
 
 func _on_detection_area_entered(area):
+	if RunTimer.time_left != 0:
+		RunTimer.stop()
 	target = area #me when i fucking GET YOU
 	print(target)
 	if currentstate != states.Chase:
@@ -56,14 +56,26 @@ func _on_detection_area_entered(area):
 #runtimer
 func _on_timer_timeout():
 	currentstate = states.Stationary
+	animstate.travel("Idle_east")
 	DetectionCone.rotation_degrees = 0
 	target = null
 
 
 func _on_detection_area_exited(area):
-	#timer currently keeps going even if you rentered the area, gotta fix that
 	RunTimer.start()
 
 
 func _on_look_timer_timeout():
 	DetectionCone.rotation_degrees += 90
+	if DetectionCone.rotation_degrees == 0:
+		animstate.travel("Idle_east")
+	elif DetectionCone.rotation_degrees == 90:
+		animstate.travel("Idle_south")
+	elif DetectionCone.rotation_degrees == 180:
+		animstate.travel("Idle_west")
+	elif DetectionCone.rotation_degrees == 270:
+		animstate.travel("Idle_north")
+	elif DetectionCone.rotation_degrees == 360:
+		animstate.travel("Idle_east")
+		print("360 hit, returning to 0...")
+		DetectionCone.rotation_degrees = 0

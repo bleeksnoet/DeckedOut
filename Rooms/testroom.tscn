@@ -31,7 +31,7 @@ color = Color(0.25098, 0.25098, 0.25098, 1)
 
 [node name="hide enemies example" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_a3yy1")
-position = Vector2(110, 359)
+position = Vector2(-152, 349)
 texture = ExtResource("3_svosx")
 
 [node name="BasicEnemyTest" parent="." instance=ExtResource("4_glw42")]

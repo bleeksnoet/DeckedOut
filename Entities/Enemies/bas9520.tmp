@@ -1,11 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://jvj8jpvm1buj"]
+[gd_scene load_steps=31 format=3 uid="uid://jvj8jpvm1buj"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/basic_enemy_test.gd" id="1_3yiww"]
 [ext_resource type="Texture2D" uid="uid://cgjbwbi1na5v7" path="res://Assets/free_skeleton_v002/Sprites/Skeleton.png" id="1_gbisp"]
 [ext_resource type="PackedScene" uid="uid://bhqkoupsxoor5" path="res://Assets/Scenes/detectioncone.tscn" id="3_fffja"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7qql4"]
-light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyjh"]
 size = Vector2(10, 8)
@@ -33,18 +32,6 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_h0qvo")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_um6uu"]
-animation = &"Idle_east"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0yetw"]
-animation = &"Idle_north"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ylkd"]
-animation = &"Idle_south"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kfn13"]
-animation = &"Idle_west"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_73hku"]
 animation = &"Walk_South"
 
@@ -68,58 +55,23 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_x3t8s")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_06cql"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ikthg"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jm06o"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tw3sn"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tgo0k"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1hri3"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tp4we"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sc54t"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibwie"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rswva"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iy856"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wlrb0"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m2v1n"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nbmpu"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r4nry"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_egkmj"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cy3ur"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xngke"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5lgo7"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3n53"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1abqt"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hhbyh"]
-states/End/position = Vector2(497, 149.5)
+states/End/position = Vector2(492, 98)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_h7rmb")
-states/Idle/position = Vector2(-68, -194.5)
-states/Idle_east/node = SubResource("AnimationNodeAnimation_um6uu")
-states/Idle_east/position = Vector2(523, 313)
-states/Idle_north/node = SubResource("AnimationNodeAnimation_0yetw")
-states/Idle_north/position = Vector2(348, 204)
-states/Idle_south/node = SubResource("AnimationNodeAnimation_1ylkd")
-states/Idle_south/position = Vector2(348, 430.5)
-states/Idle_west/node = SubResource("AnimationNodeAnimation_kfn13")
-states/Idle_west/position = Vector2(163, 313)
-states/Start/position = Vector2(523, 430.5)
+states/Idle/position = Vector2(348, 56.5)
+states/Start/position = Vector2(204, 56.5)
 states/Walking/node = SubResource("AnimationNodeBlendSpace2D_kppj2")
-states/Walking/position = Vector2(348, 313)
-transitions = ["Walking", "Idle_north", SubResource("AnimationNodeStateMachineTransition_06cql"), "Walking", "Idle_west", SubResource("AnimationNodeStateMachineTransition_jm06o"), "Walking", "Idle_east", SubResource("AnimationNodeStateMachineTransition_tgo0k"), "Walking", "Idle_south", SubResource("AnimationNodeStateMachineTransition_tp4we"), "Idle_west", "Walking", SubResource("AnimationNodeStateMachineTransition_sc54t"), "Idle_north", "Walking", SubResource("AnimationNodeStateMachineTransition_ibwie"), "Idle_east", "Walking", SubResource("AnimationNodeStateMachineTransition_rswva"), "Idle_south", "Walking", SubResource("AnimationNodeStateMachineTransition_iy856"), "Start", "Idle_east", SubResource("AnimationNodeStateMachineTransition_wlrb0"), "Idle_south", "Idle_west", SubResource("AnimationNodeStateMachineTransition_m2v1n"), "Idle_west", "Idle_north", SubResource("AnimationNodeStateMachineTransition_nbmpu"), "Idle_north", "Idle_east", SubResource("AnimationNodeStateMachineTransition_r4nry"), "Idle_east", "Idle_south", SubResource("AnimationNodeStateMachineTransition_egkmj"), "Idle_south", "Idle_east", SubResource("AnimationNodeStateMachineTransition_cy3ur"), "Idle_east", "Idle_north", SubResource("AnimationNodeStateMachineTransition_xngke"), "Idle_north", "Idle_west", SubResource("AnimationNodeStateMachineTransition_5lgo7"), "Idle_west", "Idle_south", SubResource("AnimationNodeStateMachineTransition_x3n53")]
-graph_offset = Vector2(-158, -2)
+states/Walking/position = Vector2(348, 149.5)
+transitions = ["Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_ikthg"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_tw3sn"), "Start", "Walking", SubResource("AnimationNodeStateMachineTransition_1hri3"), "Walking", "End", SubResource("AnimationNodeStateMachineTransition_1abqt")]
+graph_offset = Vector2(-190, -8)
 
 [sub_resource type="Animation" id="Animation_0pk5s"]
 resource_name = "Idle_east"
