@@ -506,7 +506,6 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 1
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
 position = Vector2(16, 61.5)
@@ -535,7 +534,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_1ydej")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Idle/blend_position = Vector2(0, 0.978214)
+parameters/Idle/blend_position = Vector2(0.0129638, 0.638344)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="HPmanager" type="Node" parent="."]
