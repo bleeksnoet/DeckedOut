@@ -71,6 +71,7 @@ Sneak={
 2d_physics/layer_3="PlayerStrikebox"
 2d_physics/layer_4="PlayerSneakbox"
 2d_physics/layer_5="EnemyHitbox"
+2d_physics/layer_6="CameraAnchor"
 
 [rendering]
 
