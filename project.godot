@@ -26,12 +26,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Gui="*res://GUI and Menus/gui.tscn"
 GodotEssentialsHelpers="*res://addons/2d_essentials/autoload/helpers.gd"
 GodotEssentialsAudio="*res://addons/2d_essentials/autoload/audio/audio.gd"
 GodotEssentialsSceneTransitioner="*res://addons/2d_essentials/autoload/scene_transitions/scene_transitioner.gd"
 GodotEssentialsAchievements="*res://addons/2d_essentials/autoload/achievements/achievements.tscn"
 GodotEssentialsEnvironment="*res://addons/2d_essentials/autoload/dotenv/godotenv.gd"
+Scores="*res://GUI and Menus/Scores.gd"
 
 [editor_plugins]
 
