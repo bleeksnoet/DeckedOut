@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnm5b3tsgrdw5"]
+
+[ext_resource type="Script" path="res://GUI and Menus/gui.gd" id="1_r3pl3"]
+[ext_resource type="PackedScene" uid="uid://514upbgpxtgk" path="res://GUI and Menus/hp_bar.tscn" id="2_ue2sa"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r3pl3")
+
+[node name="HPBar" parent="." instance=ExtResource("2_ue2sa")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 51.0
+
+[node name="RelicLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 58.0
+offset_right = 95.0
+offset_bottom = 84.0
+text = "99 Relics"
+
+[node name="GoldLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 86.0
+offset_right = 95.0
+offset_bottom = 112.0
+text = "99 Gold"
+
+[connection signal="GuiUpdates" from="." to="." method="_on_gui_updates"]

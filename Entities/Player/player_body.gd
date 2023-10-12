@@ -7,7 +7,7 @@ var mainspeed = 400
 @onready var animplayer = $AnimationPlayer
 @onready var Collison = $Wallcol
 @onready var HPmanager = $HPmanager
-@onready var HPBar = $HPBar
+@onready var HPBar = Gui.HPBar
 @onready var animstate = animtree.get("parameters/playback")
 
 var direction = Vector2.ZERO
@@ -46,6 +46,9 @@ func Walking():
 
 func Sneaking():
 	if Input.is_action_pressed("Sneak"):
+		Gui.RelicScore += 1
+		Gui.GoldScore += 1
+		Gui.GuiUpdates.emit()
 		speed = speedup
 		$Sneaky/maincol.disabled = true
 		$Sneaky/Sneakcol.disabled = false
@@ -64,7 +67,6 @@ func Idle():
 			CurrentState = states.Walking
 
 func _on_hpmanager_died():
-	print("yes")
 	animstate.travel("Death")
 
 func _on_dmg_checker_body_entered(body):

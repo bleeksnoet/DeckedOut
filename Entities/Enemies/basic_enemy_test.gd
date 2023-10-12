@@ -25,7 +25,6 @@ func _ready():
 func _physics_process(delta):
 #	animtree.set("parameters/Idle/blend_position", velocity)
 	animtree.set("parameters/Walking/blend_position", velocity)
-	print(SoundTimer.time_left)
 	var direction = Vector2()
 	
 	if currentstate == states.Chase:
@@ -55,7 +54,6 @@ func _on_detection_area_entered(area):
 	if RunTimer.time_left != 0:
 		RunTimer.stop()
 	target = area #me when i fucking GET YOU
-	print(target)
 	if currentstate != states.Chase:
 		currentstate = states.Chase
 

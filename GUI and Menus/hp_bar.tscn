@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://514upbgpxtgk"]
+
+[node name="HPBar" type="ProgressBar"]
+offset_left = -18.0
+offset_top = -27.0
+offset_right = 50.0
+value = 100.0
+metadata/_edit_lock_ = true

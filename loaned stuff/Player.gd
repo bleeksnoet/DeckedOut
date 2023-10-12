@@ -9,7 +9,7 @@ enum State{
 	JUMP,		#2
 	CROUCH,		#3
 	SPRINT,		#4
-	WALLSLIDE	#5
+	WALLSLIDE,	#5
 	WALLJUMP	#6
 }
 
