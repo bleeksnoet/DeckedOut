@@ -5,10 +5,8 @@ extends Control
 @onready var GoldLabel = $GoldLabel
 func _ready():
 	GoldLabel.text = str("fuck")
+	HPBar.max_value = Scores.MaxHealth
 
-func _physics_process(delta):
+func _process(delta):
 	GoldLabel.text = str(Scores.GoldScore, " Gold")
-
-func Update():
-	print(Scores.GoldScore)
-	GoldLabel.text = str(Scores.GoldScore, " Gold")
+	HPBar.value = Scores.Health
