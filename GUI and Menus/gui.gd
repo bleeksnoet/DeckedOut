@@ -9,4 +9,5 @@ func _ready():
 
 func _process(delta):
 	GoldLabel.text = str(Scores.GoldScore, " Gold")
+	RelicLabel.text = str(Scores.RelicScore, " Relics")
 	HPBar.value = Scores.Health
