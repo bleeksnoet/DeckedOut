@@ -7,9 +7,7 @@ func _ready():
 	randomize()
 	if Scores.difficulty == 1:
 		relic_amount = rng.randi_range(5, 20)
-		print(relic_amount)
 
 func _on_area_2d_body_entered(body):
 	Scores.RelicScore += relic_amount
-	print(relic_amount)
 	queue_free()

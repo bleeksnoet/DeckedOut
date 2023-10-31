@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4aqskwwst6gq"]
+
+[ext_resource type="Script" path="res://Assets/relic_spawnpoints.gd" id="1_1b4u4"]
+[ext_resource type="PackedScene" uid="uid://d1p1nehfskg24" path="res://Entities/Loot/relic_drop.tscn" id="2_7ivte"]
+
+[node name="RelicSpawnpoints" type="Node2D"]
+script = ExtResource("1_1b4u4")
+
+[node name="Spawnpoint1" type="Marker2D" parent="."]
+
+[node name="Spawnpoint2" type="Marker2D" parent="."]
+
+[node name="Spawnpoint3" type="Marker2D" parent="."]
+
+[node name="Spawnpoint4" type="Marker2D" parent="."]
+
+[node name="Spawnpoint5" type="Marker2D" parent="."]
+
+[node name="RelicDrop" parent="." instance=ExtResource("2_7ivte")]

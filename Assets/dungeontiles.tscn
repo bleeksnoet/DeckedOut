@@ -288,6 +288,7 @@ navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_gw14p")
 
 [node name="TileMap" type="TileMap"]
+scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_vylox")
 format = 2
 layer_0/name = "groundfloor"
