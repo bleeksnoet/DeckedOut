@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 300
 var accel = 150
 var target = null
+@export_enum("North","East","South","West") var ConeAngle
 
 @onready var RunTimer = $RunafterTimer
 @onready var LookTimer = $LookTimer
@@ -20,7 +21,8 @@ enum states{
 var currentstate = states.Stationary
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if ConeAngle == "North":
+		DetectionCone = 360
 
 func _physics_process(delta):
 #	animtree.set("parameters/Idle/blend_position", velocity)
@@ -62,34 +64,12 @@ func _on_detection_area_entered(area):
 func _on_timer_timeout():
 	currentstate = states.Stationary
 	animstate.travel("Idle_east")
-	DetectionCone.rotation_degrees = 0
+	DetectionCone.rotation_degrees = ConeAngle
 	target = null
 
 
 func _on_detection_area_exited(area):
 	RunTimer.start()
-
-
-func _on_look_timer_timeout():
-	DetectionCone.rotation_degrees += 90
-	if DetectionCone.rotation_degrees == 0:
-		animstate.travel("Idle_east")
-		emit_sound()
-	elif DetectionCone.rotation_degrees == 90:
-		animstate.travel("Idle_south")
-		emit_sound()
-	elif DetectionCone.rotation_degrees == 180:
-		animstate.travel("Idle_west")
-		emit_sound()
-	elif DetectionCone.rotation_degrees == 270:
-		animstate.travel("Idle_north")
-		emit_sound()
-	elif DetectionCone.rotation_degrees == 360:
-		animstate.travel("Idle_east")
-		emit_sound()
-		print("360 hit, returning to 0...")
-		DetectionCone.rotation_degrees = 0
-
 
 func _on_sound_timer_timeout():
 	emit_sound()
