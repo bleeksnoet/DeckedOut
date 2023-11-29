@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ct7autxeipshb" path="res://Assets/pngegg.png" id="5_xqfwn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tt020"]
-radius = 7.0
+radius = 14.5
 height = 36.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dg3ta"]
@@ -509,10 +509,11 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
+frame = 2
 metadata/_edit_lock_ = true
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
-position = Vector2(16, 61.5)
+position = Vector2(16, 55.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tt020")
 

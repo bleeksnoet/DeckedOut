@@ -448,24 +448,15 @@ libraries = {
 "": SubResource("AnimationLibrary_uaykp")
 }
 
-[node name="LookTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-30, 15)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kv5ds")
 animation = &"Dust_Trail"
 
-[node name="SoundTimer" type="Timer" parent="."]
-wait_time = 0.5
-
 [connection signal="area_entered" from="Detectioncone/Detection" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="Detectioncone/Detection" to="." method="_on_detection_area_exited"]
 [connection signal="timeout" from="RunafterTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="LookTimer" to="." method="_on_look_timer_timeout"]
-[connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]
 
 [editable path="Detectioncone"]

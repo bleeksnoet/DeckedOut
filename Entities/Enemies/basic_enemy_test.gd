@@ -3,10 +3,9 @@ extends CharacterBody2D
 var speed = 300
 var accel = 150
 var target = null
-@export_enum("North","East","South","West") var ConeAngle
-
+enum ConeAngle{North,East,South,West} 
+@export var Current_angle = ConeAngle.North
 @onready var RunTimer = $RunafterTimer
-@onready var LookTimer = $LookTimer
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var animstate = animtree.get("parameters/playback")
@@ -21,8 +20,15 @@ enum states{
 var currentstate = states.Stationary
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if ConeAngle == "North":
-		DetectionCone = 360
+	match Current_angle:
+		ConeAngle.North:
+			DetectionCone.rotation_degrees = 270
+		ConeAngle.East:
+			DetectionCone.rotation_degrees = 0
+		ConeAngle.South:
+			DetectionCone.rotation_degrees = 90
+		ConeAngle.West:
+			DetectionCone.rotation_degrees = 180
 
 func _physics_process(delta):
 #	animtree.set("parameters/Idle/blend_position", velocity)
@@ -30,9 +36,6 @@ func _physics_process(delta):
 	var direction = Vector2()
 	
 	if currentstate == states.Chase:
-		if SoundTimer.time_left == 0:
-			SoundTimer.start()
-		LookTimer.stop()
 		nav.target_position = target.global_position
 		DetectionCone.look_at(target.global_position)
 		animstate.travel("Walking")
@@ -40,17 +43,22 @@ func _physics_process(delta):
 		direction = nav.get_next_path_position() - global_position
 		direction = direction.normalized()
 	
-	if currentstate == states.Stationary:
-		SoundTimer.stop()
-		if LookTimer.time_left == 0:
-			LookTimer.start()
-		
 	velocity = direction * speed
 	
 	move_and_slide()
 
-func emit_sound():
-	$AnimatedSprite2D.play("Dust_Trail")
+func snap_cone_angle():
+	var current_angle = DetectionCone.global_rotation_degrees
+	var snapped_angle = nearest_angle(current_angle)
+	DetectionCone.rotation_degrees = snapped_angle
+
+func nearest_angle(angle):
+	var remainder = int(angle) % 90
+	if remainder < 45:
+		return floor(angle/90)*90
+	else:
+		return ceil(angle/90)*90
+
 
 func _on_detection_area_entered(area):
 	if RunTimer.time_left != 0:
@@ -63,13 +71,10 @@ func _on_detection_area_entered(area):
 #runtimer
 func _on_timer_timeout():
 	currentstate = states.Stationary
-	animstate.travel("Idle_east")
-	DetectionCone.rotation_degrees = ConeAngle
+	animstate.travel("Idle_south")
 	target = null
-
+	snap_cone_angle()
 
 func _on_detection_area_exited(area):
 	RunTimer.start()
 
-func _on_sound_timer_timeout():
-	emit_sound()

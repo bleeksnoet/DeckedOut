@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1p1nehfskg24"]
+[gd_scene load_steps=5 format=3 uid="uid://d1p1nehfskg24"]
 
 [ext_resource type="Texture2D" uid="uid://dnguqvlljk1v7" path="res://icon.svg" id="1_140p8"]
 [ext_resource type="Script" path="res://Entities/Loot/relic_drop.gd" id="2_sy253"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qgvow"]
+light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_joxec"]
 size = Vector2(128, 128)
 
 [node name="RelicDrop" type="Sprite2D"]
+material = SubResource("CanvasItemMaterial_qgvow")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_140p8")
 script = ExtResource("2_sy253")
