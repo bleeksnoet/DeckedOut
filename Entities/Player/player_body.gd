@@ -7,13 +7,15 @@ var mainspeed = 400
 @onready var animplayer = $AnimationPlayer
 @onready var Collison = $Wallcol
 @onready var HPmanager = $HPmanager
+@onready var WeapSys = $WeaponSystem
 @onready var animstate = animtree.get("parameters/playback")
 
 var direction = Vector2.ZERO
 enum states {
 	Idle,
 	Walking,
-	Sneaking
+	Sneaking,
+	Striking
 }
 var CurrentState = states.Idle
 
@@ -62,6 +64,16 @@ func Idle():
 #state changers
 		if direction != Vector2.ZERO:
 			CurrentState = states.Walking
+
+func Striking():
+	if CurrentState == states.Striking:
+		animstate.travel("Idle")
+		velocity = velocity.move_toward(Vector2.ZERO,speedup)
+		
+#state changers
+		if direction != Vector2.ZERO:
+			CurrentState = states.Walking
+
 
 func _on_hpmanager_died():
 	animstate.travel("Death")

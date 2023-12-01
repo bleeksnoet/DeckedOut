@@ -1,8 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://jvj8jpvm1buj"]
+[gd_scene load_steps=57 format=3 uid="uid://fxmqcn27ijx8"]
 
-[ext_resource type="Script" path="res://Entities/Enemies/basic_enemy_test.gd" id="1_0jvgj"]
+[ext_resource type="Script" path="res://Entities/Enemies/Sentry/basic_enemy_test.gd" id="1_0jvgj"]
 [ext_resource type="Texture2D" uid="uid://cgjbwbi1na5v7" path="res://Assets/free_skeleton_v002/Sprites/Skeleton.png" id="2_prfag"]
-[ext_resource type="PackedScene" uid="uid://bhqkoupsxoor5" path="res://Assets/Scenes/detectioncone.tscn" id="3_t7je7"]
+[ext_resource type="PackedScene" uid="uid://dt1gsskrc8dh6" path="res://Systems/nav_sys.tscn" id="4_07tqk"]
 [ext_resource type="Texture2D" uid="uid://dbcawf6lgvce7" path="res://Assets/Particles/SMALL SMOKE.png" id="4_i674g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7qql4"]
@@ -427,11 +427,6 @@ vframes = 12
 position = Vector2(-2, 22.5)
 shape = SubResource("RectangleShape2D_tiyjh")
 
-[node name="Detectioncone" parent="." instance=ExtResource("3_t7je7")]
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_postprocessing = 1
-
 [node name="RunafterTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -455,8 +450,10 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kv5ds")
 animation = &"Dust_Trail"
 
-[connection signal="area_entered" from="Detectioncone/Detection" to="." method="_on_detection_area_entered"]
-[connection signal="area_exited" from="Detectioncone/Detection" to="." method="_on_detection_area_exited"]
-[connection signal="timeout" from="RunafterTimer" to="." method="_on_timer_timeout"]
+[node name="NavSys" parent="." instance=ExtResource("4_07tqk")]
 
-[editable path="Detectioncone"]
+[connection signal="timeout" from="RunafterTimer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="NavSys/Detection" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="NavSys/Detection" to="." method="_on_detection_area_exited"]
+
+[editable path="NavSys"]

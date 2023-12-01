@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://jbjnk4qwe7tn"]
+
+[ext_resource type="Script" path="res://EnemyTemplate.gd" id="1_hg8q7"]
+[ext_resource type="Texture2D" uid="uid://cgjbwbi1na5v7" path="res://Assets/free_skeleton_v002/Sprites/Skeleton.png" id="2_wwmlh"]
+[ext_resource type="PackedScene" uid="uid://dt1gsskrc8dh6" path="res://nav_sys.tscn" id="3_2b4qt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_emsbt"]
+light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1jio"]
+size = Vector2(44, 21)
+
+[node name="EnemyTemplate" type="CharacterBody2D"]
+script = ExtResource("1_hg8q7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_emsbt")
+scale = Vector2(4, 4)
+texture = ExtResource("2_wwmlh")
+hframes = 4
+vframes = 12
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 22.5)
+shape = SubResource("RectangleShape2D_l1jio")
+
+[node name="RunafterTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="NavSys" parent="." instance=ExtResource("3_2b4qt")]
+
+[connection signal="timeout" from="RunafterTimer" to="." method="_on_runafter_timer_timeout"]
+[connection signal="area_entered" from="NavSys/Detection" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="NavSys/Detection" to="." method="_on_detection_area_exited"]
+
+[editable path="NavSys"]

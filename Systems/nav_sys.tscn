@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt1gsskrc8dh6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywdxy"]
+radius = 69.0072
+
+[node name="NavSys" type="Node2D"]
+
+[node name="NavAG" type="NavigationAgent2D" parent="."]
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_ywdxy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection"]
+polygon = PackedVector2Array(0, 0, 156, -105, 193, -42, 201, -1, 195, 37, 157, 95)

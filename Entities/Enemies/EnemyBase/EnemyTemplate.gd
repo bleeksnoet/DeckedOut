@@ -2,16 +2,15 @@ extends CharacterBody2D
 
 var speed = 300
 var accel = 150
+
 var target = null
+
 enum ConeAngle{North,East,South,West} 
+
 @export var Current_angle = ConeAngle.North
 @onready var RunTimer = $RunafterTimer
-@onready var animtree = $AnimationTree
-@onready var animplayer = $AnimationPlayer
-@onready var animstate = animtree.get("parameters/playback")
-@onready var DetectionCone = $Detectioncone
-@onready var nav = $NavigationAgent2D
-@onready var SoundTimer = $SoundTimer
+@onready var DetectionCone = $NavSys/Detection
+@onready var nav = $NavSys/NavAG
 
 enum states{
 	Stationary,
@@ -32,13 +31,11 @@ func _ready():
 
 func _physics_process(delta):
 #	animtree.set("parameters/Idle/blend_position", velocity)
-	animtree.set("parameters/Walking/blend_position", velocity)
 	var direction = Vector2()
 	
 	if currentstate == states.Chase:
 		nav.target_position = target.global_position
 		DetectionCone.look_at(target.global_position)
-		animstate.travel("Walking")
 		
 		direction = nav.get_next_path_position() - global_position
 		direction = direction.normalized()
@@ -59,22 +56,15 @@ func nearest_angle(angle):
 	else:
 		return ceil(angle/90)*90
 
-
 func _on_detection_area_entered(area):
 	if RunTimer.time_left != 0:
 		RunTimer.stop()
 	target = area #me when i fucking GET YOU
 	if currentstate != states.Chase:
 		currentstate = states.Chase
-
-
-#runtimer
-func _on_timer_timeout():
-	currentstate = states.Stationary
-	animstate.travel("Idle_south")
-	target = null
-	snap_cone_angle()
-
 func _on_detection_area_exited(area):
 	RunTimer.start()
-
+func _on_runafter_timer_timeout():
+	currentstate = states.Stationary
+	target = null
+	snap_cone_angle()
