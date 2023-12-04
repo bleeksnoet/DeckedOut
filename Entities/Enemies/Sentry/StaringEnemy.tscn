@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbcawf6lgvce7" path="res://Assets/Particles/SMALL SMOKE.png" id="4_i674g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7qql4"]
+light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyjh"]
 size = Vector2(44, 21)
