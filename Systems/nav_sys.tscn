@@ -18,7 +18,6 @@ height = 62.0
 [node name="RotatoNodo" type="Node2D" parent="."]
 
 [node name="Detection" type="Area2D" parent="RotatoNodo"]
-visible = false
 collision_layer = 0
 collision_mask = 8
 metadata/_edit_lock_ = true
@@ -28,6 +27,9 @@ shape = SubResource("CircleShape2D_ywdxy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatoNodo/Detection"]
 polygon = PackedVector2Array(0, 0, 156, -105, 193, -42, 201, -1, 195, 37, 157, 95)
+
+[node name="Wallchecker" type="RayCast2D" parent="RotatoNodo/Detection"]
+target_position = Vector2(200, 0)
 
 [node name="StrikeBox" type="Area2D" parent="RotatoNodo"]
 collision_layer = 16
@@ -39,7 +41,6 @@ shape = SubResource("CapsuleShape2D_37ud3")
 disabled = true
 
 [node name="InrangeSB" type="Area2D" parent="RotatoNodo"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 

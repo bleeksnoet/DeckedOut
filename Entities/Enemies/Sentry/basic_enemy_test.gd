@@ -24,6 +24,7 @@ enum ConeAngle{North,East,South,West}
 @onready var Attackspr = $NavSys/RotatoNodo/AttackSprite
 @onready var strikebox = $NavSys/RotatoNodo/StrikeBox/CollisionShape2D
 @onready var inrangesb = $NavSys/RotatoNodo/InrangeSB/CollisionShape2D
+@onready var walchk = $NavSys/RotatoNodo/Detection/Wallchecker
 
 
 enum states{
@@ -109,12 +110,13 @@ func _physics_process(delta):
 
 #checking if a viable target entered the view of the AI
 func _on_detection_area_entered(area):
-	if RunTimer.time_left != 0:
-		RunTimer.stop()
-	target = area #me when i fucking GET YOU
-	if currentstate != states.Chase:
-		currentstate = states.Chase
-#If the AI lost track of their target
+	if !walchk.is_colliding():
+		if RunTimer.time_left != 0:
+			RunTimer.stop()
+		target = area #me when i fucking GET YOU
+		if currentstate != states.Chase:
+			currentstate = states.Chase
+	#If the AI lost track of their target
 func _on_timer_timeout():
 	currentstate = states.Returning
 	target = null
