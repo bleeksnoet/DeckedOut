@@ -1,19 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt1gsskrc8dh6"]
+[gd_scene load_steps=5 format=3 uid="uid://dt1gsskrc8dh6"]
+
+[ext_resource type="PackedScene" uid="uid://bvng78i0bc7t8" path="res://Assets/Attacksprites/attack_sprite.tscn" id="1_e5xdm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ywdxy"]
 radius = 69.0072
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37ud3"]
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewdj7"]
+height = 62.0
 
 [node name="NavSys" type="Node2D"]
 
 [node name="NavAG" type="NavigationAgent2D" parent="."]
 
-[node name="Detection" type="Area2D" parent="."]
+[node name="RotatoNodo" type="Node2D" parent="."]
+
+[node name="Detection" type="Area2D" parent="RotatoNodo"]
+visible = false
 collision_layer = 0
 collision_mask = 8
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatoNodo/Detection"]
 shape = SubResource("CircleShape2D_ywdxy")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotatoNodo/Detection"]
 polygon = PackedVector2Array(0, 0, 156, -105, 193, -42, 201, -1, 195, 37, 157, 95)
+
+[node name="StrikeBox" type="Area2D" parent="RotatoNodo"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatoNodo/StrikeBox"]
+position = Vector2(57, 0)
+shape = SubResource("CapsuleShape2D_37ud3")
+disabled = true
+
+[node name="InrangeSB" type="Area2D" parent="RotatoNodo"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatoNodo/InrangeSB"]
+position = Vector2(57, 0)
+shape = SubResource("CapsuleShape2D_ewdj7")
+
+[node name="AttackSprite" parent="RotatoNodo" instance=ExtResource("1_e5xdm")]
+position = Vector2(57, 0)
+rotation = -1.5708

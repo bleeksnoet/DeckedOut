@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvng78i0bc7t8"]
+
+[ext_resource type="Texture2D" uid="uid://tmqp25e77jj3" path="res://Assets/Attacksprites/SP301_01.png" id="1_onqtk"]
+[ext_resource type="Texture2D" uid="uid://b0btdtujoxpbg" path="res://Assets/Attacksprites/SP301_02.png" id="2_06vga"]
+[ext_resource type="Texture2D" uid="uid://bw0onuxaju48h" path="res://Assets/Attacksprites/SP301_03.png" id="3_6sbfi"]
+[ext_resource type="Texture2D" uid="uid://da2xd1refnxf" path="res://Assets/Attacksprites/SP301_04.png" id="4_xr68m"]
+[ext_resource type="Texture2D" uid="uid://2k640b8sua0o" path="res://Assets/Attacksprites/SP301_05.png" id="5_v26b5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7dcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_onqtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_06vga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6sbfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xr68m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v26b5")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"AttackAnim",
+"speed": 4.0
+}]
+
+[node name="AttackSprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_q7dcw")
+animation = &"AttackAnim"
+frame = 6
+frame_progress = 1.0

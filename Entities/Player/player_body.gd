@@ -8,6 +8,9 @@ var mainspeed = 400
 @onready var Collison = $Wallcol
 @onready var HPmanager = $HPmanager
 @onready var WeapSys = $WeaponSystem
+@onready var DmgTimer = $DamageTimer
+@onready var Hitbox = $Hitbox/CollisionShape2D
+@onready var Sneaky = $Sneaky
 @onready var animstate = animtree.get("parameters/playback")
 
 var direction = Vector2.ZERO
@@ -15,8 +18,11 @@ enum states {
 	Idle,
 	Walking,
 	Sneaking,
-	Striking
+	Striking,
+	Dead
 }
+
+var inframes = false
 var CurrentState = states.Idle
 
 func _ready():
@@ -30,9 +36,11 @@ func _physics_process(delta):
 	var mpos = get_global_mouse_position()
 	$VisionCone.look_at(mpos)
 	
+	Striking()
 	Walking()
 	Sneaking()
 	Idle()
+	dead()
 	move_and_slide()
 
 func Walking():
@@ -64,7 +72,7 @@ func Idle():
 #state changers
 		if direction != Vector2.ZERO:
 			CurrentState = states.Walking
-
+#WIP
 func Striking():
 	if CurrentState == states.Striking:
 		animstate.travel("Idle")
@@ -74,10 +82,33 @@ func Striking():
 		if direction != Vector2.ZERO:
 			CurrentState = states.Walking
 
+func dead():
+	if CurrentState == states.Dead:
+		animstate.travel("Death")
+		$Sneaky/maincol.disabled = true
+		$Sneaky/Sneakcol.disabled = true
+		Hitbox.disabled = true
+		velocity = velocity.move_toward(Vector2.ZERO,speedup)
+
+func damagetaken():
+	if inframes == false:
+		print("hurt")
+		HPmanager.damage(1)
+		animstate.travel("Jump")
+		DmgTimer.start()
+		Hitbox.disabled = true
+		Sneaky.monitorable = false
+		Sneaky.monitoring = false
+		Scores.Health = HPmanager.current_health
+		inframes = true
 
 func _on_hpmanager_died():
-	animstate.travel("Death")
+	CurrentState = states.Dead
 
-func _on_dmg_checker_body_entered(body):
+func _on_damage_timer_timeout():
+	inframes = false
+	Hitbox.disabled = false
+
+func _on_hitbox_area_entered(area):
 	Scores.Health = HPmanager.current_health
-	HPmanager.damage(1)
+	damagetaken()

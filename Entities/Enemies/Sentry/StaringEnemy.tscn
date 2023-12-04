@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://jvj8jpvm1buj"]
+[gd_scene load_steps=58 format=3 uid="uid://fxmqcn27ijx8"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Sentry/basic_enemy_test.gd" id="1_0jvgj"]
 [ext_resource type="Texture2D" uid="uid://cgjbwbi1na5v7" path="res://Assets/free_skeleton_v002/Sprites/Skeleton.png" id="2_prfag"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dbcawf6lgvce7" path="res://Assets/Particles/SMALL SMOKE.png" id="4_i674g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7qql4"]
-light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyjh"]
 size = Vector2(44, 21)
@@ -406,7 +405,13 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxs55"]
+radius = 18.0
+height = 50.0
+
 [node name="StaringEnemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_0jvgj")
 
 [node name="Shadow" type="ColorRect" parent="."]
@@ -424,7 +429,7 @@ hframes = 4
 vframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 22.5)
+position = Vector2(-2, 23)
 shape = SubResource("RectangleShape2D_tiyjh")
 
 [node name="RunafterTimer" type="Timer" parent="."]
@@ -452,8 +457,22 @@ animation = &"Dust_Trail"
 
 [node name="NavSys" parent="." instance=ExtResource("4_07tqk")]
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1, 15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fxs55")
+
+[node name="StrikingTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="RunafterTimer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="NavSys/Detection" to="." method="_on_detection_area_entered"]
-[connection signal="area_exited" from="NavSys/Detection" to="." method="_on_detection_area_exited"]
+[connection signal="area_entered" from="NavSys/RotatoNodo/Detection" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="NavSys/RotatoNodo/Detection" to="." method="_on_detection_area_exited"]
+[connection signal="area_entered" from="NavSys/RotatoNodo/InrangeSB" to="." method="_on_inrange_sb_area_entered"]
+[connection signal="timeout" from="StrikingTimer" to="." method="_on_striking_timer_timeout"]
 
 [editable path="NavSys"]
