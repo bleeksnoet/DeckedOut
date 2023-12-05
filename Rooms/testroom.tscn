@@ -19,7 +19,7 @@ layer_2/tile_data = PackedInt32Array(4784156, 1114113, 1, 4849692, 1114113, 1, 4
 
 [node name="Player" parent="." instance=ExtResource("1_3lepq")]
 y_sort_enabled = true
-position = Vector2(697, 1934)
+position = Vector2(940, 2134)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
@@ -60,7 +60,7 @@ position = Vector2(596, -53)
 position = Vector2(446, 113)
 
 [node name="Coin" parent="." instance=ExtResource("5_4mhuu")]
-position = Vector2(1085, 2091)
+position = Vector2(430, 2040)
 worth = 10
 
 [node name="StaringEnemy" parent="." instance=ExtResource("6_547g5")]
