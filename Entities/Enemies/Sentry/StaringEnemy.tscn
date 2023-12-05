@@ -458,7 +458,7 @@ animation = &"Dust_Trail"
 
 [node name="NavSys" parent="." instance=ExtResource("4_07tqk")]
 
-[node name="StrikeBox" parent="NavSys/RotatoNodo" index="1" groups=["T2"]]
+[node name="StrikeBox" parent="NavSys/RotatoNodo" index="1" groups=["T5"]]
 
 [node name="CollisionShape2D" parent="NavSys/RotatoNodo/StrikeBox" index="0"]
 position = Vector2(41, 0)

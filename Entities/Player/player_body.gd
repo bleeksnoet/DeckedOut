@@ -24,6 +24,14 @@ enum dmg_value {
 	T5,
 	T6
 }
+var damage_info = {
+	dmg_value.T1: {"damage": 5, "message": "oops"},
+	dmg_value.T2: {"damage": 10, "message": "OOPS"},
+	dmg_value.T3: {"damage": 15, "message": "O O P S"},
+	dmg_value.T4: {"damage": 20, "message": "YIKES"},
+	dmg_value.T5: {"damage": 25, "message": "Y I K E S"},
+	dmg_value.T6: {"damage": 30, "message": "OUCHIE"},
+}
 var incomingdmg = dmg_value.T0
 var dmgtaken
 var dmgtxt
@@ -106,13 +114,9 @@ func dead():
 		velocity = velocity.move_toward(Vector2.ZERO,speedup)
 
 func dmgcalc():
-	if incomingdmg == dmg_value.T1:
-		dmgtaken = 5
-		dmgtxt = "oops"
-		damagetaken()
-	if incomingdmg == dmg_value.T2:
-		dmgtaken = 10
-		dmgtxt = "OOPS"
+	if damage_info.has(incomingdmg):
+		dmgtaken = damage_info[incomingdmg]["damage"]
+		dmgtxt = damage_info[incomingdmg]["message"]
 		damagetaken()
 
 func damagetaken():
@@ -134,8 +138,17 @@ func _on_hpmanager_died():
 	CurrentState = states.Dead
 
 func _on_hitbox_area_entered(area):
-	print(area)
-	if area.is_in_group("T1"): incomingdmg = dmg_value.T1
-	if area.is_in_group("T2"): incomingdmg = dmg_value.T2
+	if area.is_in_group("T1"):
+		incomingdmg = dmg_value.T1
+	elif area.is_in_group("T2"):
+		incomingdmg = dmg_value.T2
+	elif area.is_in_group("T3"):
+		incomingdmg = dmg_value.T3
+	elif area.is_in_group("T4"):
+		incomingdmg = dmg_value.T4
+	elif area.is_in_group("T5"):
+		incomingdmg = dmg_value.T5
+	elif area.is_in_group("T6"):
+		incomingdmg = dmg_value.T6
 	Scores.Health = HPmanager.current_health
 	dmgcalc()
