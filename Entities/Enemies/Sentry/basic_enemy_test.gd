@@ -62,6 +62,8 @@ func _physics_process(delta):
 	var direction = Vector2()
 
 	if currentstate == states.Chase:
+		if target == null:
+			currentstate = states.Returning
 		#running after the detected target
 		nav.target_position = target.global_position
 		DetectionCone.look_at(target.global_position)
@@ -73,9 +75,11 @@ func _physics_process(delta):
 		velocity = direction * speed
 	
 	if currentstate == states.Striking:
-		velocity = Vector2.ZERO
-		Attackspr.play("AttackAnim")
-		strikebox.disabled = false
+		if !walchk.is_colliding():
+
+			velocity = Vector2.ZERO
+			Attackspr.play("AttackAnim")
+			strikebox.disabled = false
 		
 	if currentstate == states.Returning:
 		#returning home
@@ -112,9 +116,11 @@ func _physics_process(delta):
 
 #checking if a viable target entered the view of the AI
 func _on_detection_area_entered(area):
-	if !walchk.is_colliding():
+#	if !walchk.is_colliding():
 		if RunTimer.time_left != 0:
 			RunTimer.stop()
+		if walchk.is_colliding():
+			RunTimer.start()
 		target = area #me when i fucking GET YOU
 		if currentstate != states.Chase:
 			currentstate = states.Chase

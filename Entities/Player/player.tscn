@@ -381,7 +381,6 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 40
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
 position = Vector2(0, 15.5)
@@ -416,8 +415,8 @@ parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="HPmanager" type="Node" parent="."]
 script = ExtResource("4_l4f41")
-max_health = 3
-current_health = 3
+max_health = 15
+current_health = 15
 
 [node name="Vision" type="PointLight2D" parent="."]
 position = Vector2(0, 10)
@@ -436,20 +435,26 @@ offset = Vector2(250, 0)
 metadata/_edit_lock_ = true
 
 [node name="WeaponSystem" parent="." instance=ExtResource("6_t05bb")]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, 10)
 monitoring = false
 monitorable = false
 
 [node name="ColorRect2" parent="WeaponSystem" index="0"]
+visible = false
 offset_left = 27.0
 offset_right = 59.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" parent="WeaponSystem" index="1"]
+visible = false
 position = Vector2(43, 0)
 disabled = true
+
+[node name="VisionHint" type="Polygon2D" parent="WeaponSystem"]
+position = Vector2(51, 0)
+color = Color(0.25098, 0.52549, 0.352941, 0.478431)
+polygon = PackedVector2Array(0, -8, 0, 8, 9, 0)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

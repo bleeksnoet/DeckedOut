@@ -4,8 +4,6 @@ var mainspeed = 400
 @export var speed = 400  # speed in pixels/sec
 @export var speedup = 200
 
-var dmgindicator = preload("res://GUI and Menus/dmg_indicator.tscn")
-
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var Collison = $Wallcol
@@ -15,7 +13,20 @@ var dmgindicator = preload("res://GUI and Menus/dmg_indicator.tscn")
 @onready var Sneaky = $Sneaky
 @onready var animstate = animtree.get("parameters/playback")
 
-var incomingdmg = null
+#incoming damage stuff
+var dmgindicator = preload("res://GUI and Menus/dmg_indicator.tscn")
+enum dmg_value {
+	T0,
+	T1,
+	T2,
+	T3,
+	T4,
+	T5,
+	T6
+}
+var incomingdmg = dmg_value.T0
+var dmgtaken
+var dmgtxt
 
 var direction = Vector2.ZERO
 enum states {
@@ -94,9 +105,19 @@ func dead():
 		Hitbox.disabled = true
 		velocity = velocity.move_toward(Vector2.ZERO,speedup)
 
+func dmgcalc():
+	if incomingdmg == dmg_value.T1:
+		dmgtaken = 5
+		dmgtxt = "oops"
+		damagetaken()
+	if incomingdmg == dmg_value.T2:
+		dmgtaken = 10
+		dmgtxt = "OOPS"
+		damagetaken()
+
 func damagetaken():
 		print("hurt")
-		HPmanager.damage(1)
+		HPmanager.damage(dmgtaken)
 		HPmanager.enable_invulnerability(true, 1)
 		animstate.travel("Jump")
 		Scores.Health = HPmanager.current_health
@@ -107,11 +128,14 @@ func spawndmgindicator():
 	add_child(dmgi)
 	dmgi.scale *=2
 	dmgi.position = $Sprite2D.position + Vector2(randf_range(-1, 1), randf_range(-1, 1))
-	dmgi.label.text = str(1)
+	dmgi.label.text = str(dmgtxt)
 
 func _on_hpmanager_died():
 	CurrentState = states.Dead
 
 func _on_hitbox_area_entered(area):
+	print(area)
+	if area.is_in_group("T1"): incomingdmg = dmg_value.T1
+	if area.is_in_group("T2"): incomingdmg = dmg_value.T2
 	Scores.Health = HPmanager.current_health
-	damagetaken()
+	dmgcalc()

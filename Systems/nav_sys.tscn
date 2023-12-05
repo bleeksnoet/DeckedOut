@@ -58,3 +58,8 @@ shape = SubResource("CapsuleShape2D_ewdj7")
 position = Vector2(57, 0)
 rotation = -1.5708
 metadata/_edit_lock_ = true
+
+[node name="VisionHint" type="Polygon2D" parent="RotatoNodo"]
+position = Vector2(54, 0)
+color = Color(0.862745, 0, 0, 0.478431)
+polygon = PackedVector2Array(0, -8, 0, 8, 9, 0)
