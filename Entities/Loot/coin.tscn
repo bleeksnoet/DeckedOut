@@ -86,5 +86,5 @@ path_postprocessing = 1
 shape = SubResource("RectangleShape2D_m5yk4")
 disabled = true
 
-[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
+[connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]
 [connection signal="area_entered" from="PlayerSeeker" to="." method="_on_player_seeker_area_entered"]

@@ -458,6 +458,9 @@ animation = &"Dust_Trail"
 
 [node name="NavSys" parent="." instance=ExtResource("4_07tqk")]
 
+[node name="CollisionShape2D" parent="NavSys/RotatoNodo/StrikeBox" index="0"]
+position = Vector2(41, 0)
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 0

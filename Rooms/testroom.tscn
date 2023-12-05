@@ -19,9 +19,10 @@ layer_2/tile_data = PackedInt32Array(4784156, 1114113, 1, 4849692, 1114113, 1, 4
 
 [node name="Player" parent="." instance=ExtResource("1_3lepq")]
 y_sort_enabled = true
-position = Vector2(677, 1952)
+position = Vector2(959, 1954)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -59,7 +60,6 @@ position = Vector2(596, -53)
 position = Vector2(446, 113)
 
 [node name="Coin" parent="." instance=ExtResource("5_4mhuu")]
-visible = false
 position = Vector2(1085, 2091)
 worth = 10
 

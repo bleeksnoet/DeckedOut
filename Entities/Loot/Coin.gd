@@ -36,6 +36,6 @@ func _on_player_seeker_area_entered(area):
 	if currentstate != states.Chase:
 		currentstate = states.Chase
 
-func _on_collision_body_entered(body):
+func _on_collision_area_entered(area):
 	Scores.GoldScore += worth
 	queue_free()

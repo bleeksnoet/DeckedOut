@@ -3,15 +3,19 @@ extends CharacterBody2D
 var mainspeed = 400
 @export var speed = 400  # speed in pixels/sec
 @export var speedup = 200
+
+var dmgindicator = preload("res://GUI and Menus/dmg_indicator.tscn")
+
 @onready var animtree = $AnimationTree
 @onready var animplayer = $AnimationPlayer
 @onready var Collison = $Wallcol
 @onready var HPmanager = $HPmanager
 @onready var WeapSys = $WeaponSystem
-@onready var DmgTimer = $DamageTimer
 @onready var Hitbox = $Hitbox/CollisionShape2D
 @onready var Sneaky = $Sneaky
 @onready var animstate = animtree.get("parameters/playback")
+
+var incomingdmg = null
 
 var direction = Vector2.ZERO
 enum states {
@@ -91,23 +95,22 @@ func dead():
 		velocity = velocity.move_toward(Vector2.ZERO,speedup)
 
 func damagetaken():
-	if inframes == false:
 		print("hurt")
 		HPmanager.damage(1)
+		HPmanager.enable_invulnerability(true, 1)
 		animstate.travel("Jump")
-		DmgTimer.start()
-		Hitbox.disabled = true
-		Sneaky.monitorable = false
-		Sneaky.monitoring = false
 		Scores.Health = HPmanager.current_health
-		inframes = true
+		spawndmgindicator()
+
+func spawndmgindicator():
+	var dmgi = dmgindicator.instantiate()
+	add_child(dmgi)
+	dmgi.scale *=2
+	dmgi.position = $Sprite2D.position + Vector2(randf_range(-1, 1), randf_range(-1, 1))
+	dmgi.label.text = str(1)
 
 func _on_hpmanager_died():
 	CurrentState = states.Dead
-
-func _on_damage_timer_timeout():
-	inframes = false
-	Hitbox.disabled = false
 
 func _on_hitbox_area_entered(area):
 	Scores.Health = HPmanager.current_health

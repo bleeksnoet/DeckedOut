@@ -13,6 +13,8 @@ var spawnspot = global_position
 enum ConeAngle{North,East,South,West} 
 #dropdownlist for the enum above
 @export var Current_angle = ConeAngle.North
+#amount of damage this fucker deals
+@export var damage = 1
 
 @onready var StrikingTimer = $StrikingTimer
 @onready var RunTimer = $RunafterTimer
