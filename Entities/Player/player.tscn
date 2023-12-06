@@ -384,6 +384,7 @@ vframes = 12
 frame = 1
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 15.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tt020")
@@ -436,6 +437,7 @@ offset = Vector2(250, 0)
 metadata/_edit_lock_ = true
 
 [node name="WeaponSystem" parent="." instance=ExtResource("6_t05bb")]
+visible = false
 y_sort_enabled = true
 position = Vector2(0, 10)
 monitoring = false
@@ -458,13 +460,19 @@ color = Color(0.25098, 0.52549, 0.352941, 0.478431)
 polygon = PackedVector2Array(0, -8, 0, 8, 9, 0)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_0366h")
 
+[node name="Crumbdropper" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
 [connection signal="died" from="HPmanager" to="." method="_on_hpmanager_died"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Crumbdropper" to="." method="_on_crumbdropper_timeout"]
 
 [editable path="WeaponSystem"]

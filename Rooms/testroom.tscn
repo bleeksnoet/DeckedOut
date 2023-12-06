@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ubvvejtk40f"]
+[gd_scene load_steps=8 format=3 uid="uid://4ubvvejtk40f"]
 
 [ext_resource type="PackedScene" uid="uid://dxgsql8yh6824" path="res://Entities/Player/player.tscn" id="1_3lepq"]
 [ext_resource type="PackedScene" uid="uid://df1b4wtr3el6f" path="res://Assets/dungeontiles.tscn" id="1_85t52"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4aqskwwst6gq" path="res://Assets/relic_spawnpoints.tscn" id="4_hwo5q"]
 [ext_resource type="PackedScene" uid="uid://byns4lha1qst3" path="res://Entities/Loot/coin.tscn" id="5_4mhuu"]
 [ext_resource type="PackedScene" uid="uid://fxmqcn27ijx8" path="res://Entities/Enemies/Sentry/StaringEnemy.tscn" id="6_547g5"]
+[ext_resource type="PackedScene" uid="uid://dv25mfkf2oaoa" path="res://NewAITest/ai_node.tscn" id="7_7h3cd"]
 
 [node name="testroom" type="Node2D"]
 
@@ -64,7 +65,10 @@ position = Vector2(430, 2040)
 worth = 10
 
 [node name="StaringEnemy" parent="." instance=ExtResource("6_547g5")]
-position = Vector2(1380, 1896)
+position = Vector2(2124, 1915)
 Current_angle = 2
+
+[node name="AI_Node" parent="." instance=ExtResource("7_7h3cd")]
+position = Vector2(1152, 2214)
 
 [editable path="RelicSpawnpoints"]

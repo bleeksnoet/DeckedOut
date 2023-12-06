@@ -13,6 +13,7 @@ var mainspeed = 400
 @onready var Sneaky = $Sneaky
 @onready var animstate = animtree.get("parameters/playback")
 
+var breadcrumb = preload("res://NewAITest/bread_crumb.tscn")
 #incoming damage stuff
 var dmgindicator = preload("res://GUI and Menus/dmg_indicator.tscn")
 enum dmg_value {
@@ -152,3 +153,10 @@ func _on_hitbox_area_entered(area):
 		incomingdmg = dmg_value.T6
 	Scores.Health = HPmanager.current_health
 	dmgcalc()
+
+
+func _on_crumbdropper_timeout():
+	print("dropped")
+	var bredcrumb = breadcrumb.instantiate()
+	owner.add_child(bredcrumb)
+	bredcrumb.position = $Sprite2D.global_position
