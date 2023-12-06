@@ -69,6 +69,6 @@ position = Vector2(2124, 1915)
 Current_angle = 2
 
 [node name="AI_Node" parent="." instance=ExtResource("7_7h3cd")]
-position = Vector2(1152, 2214)
+position = Vector2(1213, 2187)
 
 [editable path="RelicSpawnpoints"]

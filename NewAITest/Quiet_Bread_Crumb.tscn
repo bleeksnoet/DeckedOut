@@ -1,14 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctigthywm2rax"]
+[gd_scene load_steps=6 format=3 uid="uid://ctigthywm2rax"]
 
-[ext_resource type="Script" path="res://BreadCrumb.gd" id="1_fvnrr"]
+[ext_resource type="Script" path="res://NewAITest/QuietBreadCrumb.gd" id="1_6tquq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0k3tp"]
 radius = 32.0
 
-[node name="LoudBreadCrumb" type="Area2D"]
+[sub_resource type="Animation" id="Animation_1nbgq"]
+resource_name = "Decay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [32.0, 32.0, 0.01]
+}
+
+[sub_resource type="Animation" id="Animation_w12p4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ovg"]
+_data = {
+"Decay": SubResource("Animation_1nbgq"),
+"RESET": SubResource("Animation_w12p4")
+}
+
+[node name="QuietBreadCrumb" type="Area2D"]
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_fvnrr")
+script = ExtResource("1_6tquq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0k3tp")
@@ -16,5 +52,11 @@ shape = SubResource("CircleShape2D_0k3tp")
 [node name="Lifetime" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_e7ovg")
+}
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
