@@ -381,10 +381,9 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 1
+frame = 2
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 15.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tt020")
@@ -392,8 +391,10 @@ shape = SubResource("CapsuleShape2D_tt020")
 [node name="Sneaky" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 0
+monitorable = false
 
 [node name="maincol" type="CollisionShape2D" parent="Sneaky"]
+visible = false
 position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_dg3ta")
 

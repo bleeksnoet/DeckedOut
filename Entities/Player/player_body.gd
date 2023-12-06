@@ -13,7 +13,10 @@ var mainspeed = 400
 @onready var Sneaky = $Sneaky
 @onready var animstate = animtree.get("parameters/playback")
 
+#ai detection stuff
+var breadcrumbsbig = true
 var breadcrumb = preload("res://NewAITest/bread_crumb.tscn")
+var quietcrumb = preload("res://NewAITest/Quiet_Bread_Crumb.tscn")
 #incoming damage stuff
 var dmgindicator = preload("res://GUI and Menus/dmg_indicator.tscn")
 enum dmg_value {
@@ -81,12 +84,10 @@ func Walking():
 func Sneaking():
 	if Input.is_action_pressed("Sneak"):
 		speed = speedup
-		$Sneaky/maincol.disabled = true
-		$Sneaky/Sneakcol.disabled = false
+		breadcrumbsbig = false
 	else:
 		speed = mainspeed
-		$Sneaky/maincol.disabled = false
-		$Sneaky/Sneakcol.disabled = true
+		breadcrumbsbig = true
 
 func Idle():
 	if CurrentState == states.Idle:
@@ -154,9 +155,12 @@ func _on_hitbox_area_entered(area):
 	Scores.Health = HPmanager.current_health
 	dmgcalc()
 
-
 func _on_crumbdropper_timeout():
-	print("dropped")
-	var bredcrumb = breadcrumb.instantiate()
-	owner.add_child(bredcrumb)
-	bredcrumb.position = $Sprite2D.global_position
+	if breadcrumbsbig == true:
+		var bredcrumb = breadcrumb.instantiate()
+		owner.add_child(bredcrumb)
+		bredcrumb.position = $Sprite2D.global_position
+	else:
+		var bredcrumb = quietcrumb.instantiate()
+		owner.add_child(bredcrumb)
+		bredcrumb.position = $Sprite2D.global_position

@@ -18,6 +18,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_xmgc4")
 
 [node name="Wallchecker" type="RayCast2D" parent="."]
-target_position = Vector2(64, 2.08165e-12)
+target_position = Vector2(134, 0)
+collide_with_areas = true
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
