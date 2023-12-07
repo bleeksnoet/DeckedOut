@@ -10,7 +10,6 @@ var mainspeed = 400
 @onready var HPmanager = $HPmanager
 @onready var WeapSys = $WeaponSystem
 @onready var Hitbox = $Hitbox/CollisionShape2D
-@onready var Sneaky = $Sneaky
 @onready var animstate = animtree.get("parameters/playback")
 
 #ai detection stuff

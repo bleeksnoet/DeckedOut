@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dxgsql8yh6824"]
+[gd_scene load_steps=42 format=3 uid="uid://dxgsql8yh6824"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_body.gd" id="1_ebfo8"]
 [ext_resource type="Texture2D" uid="uid://7v8phfsmiyyg" path="res://Assets/Pixel-RPG_Prototype_v003/Sprites/Prototype/Prototype_Worksheet.png" id="3_8v5dp"]
@@ -8,14 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c4mxqxl2im8bf" path="res://Entities/Player/WeaponSystem.tscn" id="6_t05bb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tt020"]
-radius = 6.5
-height = 28.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dg3ta"]
-radius = 123.004
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ggn84"]
-radius = 52.0384
+radius = 13.0
+height = 46.0
 
 [sub_resource type="Animation" id="Animation_1cprx"]
 resource_name = "Death"
@@ -381,29 +375,10 @@ scale = Vector2(-4, 4)
 texture = ExtResource("3_8v5dp")
 hframes = 4
 vframes = 12
-frame = 3
 
 [node name="Wallcol" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15.5)
-rotation = 1.5708
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_tt020")
-
-[node name="Sneaky" type="Area2D" parent="."]
-visible = false
-collision_layer = 8
-collision_mask = 0
-monitoring = false
-monitorable = false
-
-[node name="maincol" type="CollisionShape2D" parent="Sneaky"]
-visible = false
-position = Vector2(0, 9)
-shape = SubResource("CircleShape2D_dg3ta")
-
-[node name="Sneakcol" type="CollisionShape2D" parent="Sneaky"]
-position = Vector2(0, 9)
-shape = SubResource("CircleShape2D_ggn84")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -466,6 +441,8 @@ polygon = PackedVector2Array(0, -8, 0, 8, 9, 0)
 visible = false
 collision_layer = 2
 collision_mask = 16
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_0366h")
