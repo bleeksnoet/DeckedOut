@@ -6,14 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxail"]
 size = Vector2(16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xmgc4"]
-radius = 128.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_p582h"]
+radius = 100.0
 
 [node name="AI_Node" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_c2xv5")
-attack_range = 100
+Behaviour = 1
+attack_range = 50
 
 [node name="obligatorycol" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yxail")
@@ -26,9 +27,11 @@ debug_color = Color(1, 0, 0.129412, 1)
 collision_layer = 0
 collision_mask = 8
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea"]
+polygon = PackedVector2Array(1, 0, 20, -100, 200, -200, 400, -200, 400, 200, 200, 200, 20, 100)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
-shape = SubResource("CircleShape2D_xmgc4")
+shape = SubResource("CircleShape2D_p582h")
 
 [node name="Wallchecker" type="RayCast2D" parent="."]
 target_position = Vector2(2.08165e-12, 2.08165e-12)
@@ -37,4 +40,21 @@ collide_with_areas = true
 [node name="HPComp" type="Node" parent="."]
 script = ExtResource("2_krhmc")
 
+[node name="SwitchTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DetectionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="stateshower" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -59.0
+offset_right = 20.0
+offset_bottom = -33.0
+text = "State"
+
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="timeout" from="SwitchTimer" to="." method="_on_switch_timer_timeout"]
+[connection signal="timeout" from="DetectionTimer" to="." method="_on_detection_timer_timeout"]

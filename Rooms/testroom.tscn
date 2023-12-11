@@ -60,6 +60,5 @@ position = Vector2(446, 113)
 
 [node name="AI_Node" parent="." instance=ExtResource("7_7h3cd")]
 position = Vector2(1213, 2187)
-Behaviour = 1
 
 [editable path="RelicSpawnpoints"]
