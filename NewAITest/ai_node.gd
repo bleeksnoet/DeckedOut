@@ -72,19 +72,23 @@ func _physics_process(delta):
 			currentstate = states.Chase
 			
 		if currentstate == states.Chase:
-			NavAg.target_position = target.global_position
+			var buffer = 50
+			
+			var toPlayer = target.global_position - global_position
+			distance = toPlayer.length()
+			
+			if distance > attack_range + buffer:
+				NavAg.target_position = target.global_position
+			elif distance < attack_range - buffer: #too close!! move to a certain distance
+				var desiredDistance = attack_range * 1.5
+				var oppositeDirection = -toPlayer.normalized()
+				var destination = target.global_position + oppositeDirection * desiredDistance
+				
+				NavAg.target_position = destination
 			
 			direction = NavAg.get_next_path_position() - global_position
 			direction = direction.normalized()
 
-#not working rn			
-#			if distance > attack_range:
-#				NavAg.target_position = target.global_position
-#				direction = NavAg.get_next_path_position() + global_position
-#				direction = direction.normalized()
-#			else:
-#				currentstate = states.Chase
-	
 	#keep this at the bottom
 	velocity = direction * speed
 	move_and_slide()
