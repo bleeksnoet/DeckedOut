@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://4ubvvejtk40f"]
+[gd_scene load_steps=7 format=3 uid="uid://4ubvvejtk40f"]
 
 [ext_resource type="PackedScene" uid="uid://dxgsql8yh6824" path="res://Entities/Player/player.tscn" id="1_3lepq"]
 [ext_resource type="PackedScene" uid="uid://df1b4wtr3el6f" path="res://Assets/dungeontiles.tscn" id="1_85t52"]
 [ext_resource type="PackedScene" uid="uid://dnm5b3tsgrdw5" path="res://GUI and Menus/gui.tscn" id="1_svl02"]
+[ext_resource type="PackedScene" uid="uid://4jyf40155j12" path="res://Systems/zoomable_cam.tscn" id="3_o4ord"]
 [ext_resource type="PackedScene" uid="uid://c4aqskwwst6gq" path="res://Assets/relic_spawnpoints.tscn" id="4_hwo5q"]
 [ext_resource type="PackedScene" uid="uid://dv25mfkf2oaoa" path="res://NewAITest/ai_node.tscn" id="7_7h3cd"]
 
@@ -20,16 +21,7 @@ layer_2/tile_data = PackedInt32Array(4784156, 1114113, 1, 4849692, 1114113, 1, 4
 y_sort_enabled = true
 position = Vector2(940, 2134)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.1
-drag_top_margin = 0.1
-drag_right_margin = 0.1
-drag_bottom_margin = 0.1
-metadata/_edit_lock_ = true
+[node name="ZoomableCam" parent="Player" instance=ExtResource("3_o4ord")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

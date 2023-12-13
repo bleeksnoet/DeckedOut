@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var Detector = $DetectionArea
 @onready var spawnpoint = global_position
 @onready var DetectTimer = $DetectionTimer
+@onready var WanderTimer = $WanderTimer
 var Standing = false
 #health and damagio
 @export var Tiers = Tier
@@ -37,8 +38,8 @@ var Tier_info = {
 var target = null
 var from_target = null
 var distance = null
-#select your AI!
-enum Behaviourlist{none,chase} 
+#select your AI!, chase is an melee ai that roams and runs after the player, sentry chases the player and returns once its done
+enum Behaviourlist{none,chase,sentry} 
 #dropdownlist for the enum above
 @export var Behaviour = Behaviourlist.none
 #speed!
@@ -46,25 +47,30 @@ enum Behaviourlist{none,chase}
 var speed = originalSpeed
 #when should the AI retreat?
 @export var attack_range = 3
+
+@export var Roam_Radius = 10
 #le statelist(universal wow!!) :3
 enum states {
 	Idle,
 	Chase,
 	Attack,
 	Searching,
-	Returning
+	Returning,
+	Roaming
 }
 var currentstate = states.Idle
 
 
 func _ready():
+	randomize()
 	var spawnpoint = global_position
 	
 	if Behaviour == Behaviourlist.chase:
-		if global_position == spawnpoint:
-			currentstate = states.Idle
-		else:
-			currentstate = states.Returning
+		currentstate = states.Roaming
+#		if global_position == spawnpoint:
+#			currentstate = states.Idle
+#		else:
+#			currentstate = states.Returning
 
 #player entered the cone of sight! lets check if the AI can *actually* see them
 func _on_detection_area_area_entered(area):
@@ -77,7 +83,6 @@ func _on_detection_area_area_entered(area):
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
-	print(speed)
 	$stateshower.text = str(currentstate)
 	var direction = Vector2()
 	
@@ -132,6 +137,21 @@ func _physics_process(delta):
 				velocity = Vector2.ZERO
 				speed = originalSpeed
 
+		if currentstate == states.Roaming:
+			if WanderTimer.is_stopped():
+				var target_vector = Vector2(randf_range(-Roam_Radius, Roam_Radius), randf_range(-Roam_Radius, Roam_Radius))
+				spawnpoint = spawnpoint + target_vector
+				WanderTimer.start(randf_range(1,7))
+			
+			NavAg.target_position = spawnpoint
+			direction = NavAg.get_next_path_position() - global_position
+			direction = direction.normalized()
+			
+			speed = originalSpeed/2
+			
+			Detector.look_at(global_position + direction)
+
+
 	#keep this at the bottom
 	if global_position.distance_to(NavAg.target_position) < 5:
 		velocity = Vector2.ZERO
@@ -151,4 +171,5 @@ func _on_detection_area_area_exited(area):
 
 func _on_detection_timer_timeout():
 	if Behaviour == Behaviourlist.chase:
-		currentstate = states.Returning
+		spawnpoint = global_position
+		currentstate = states.Roaming

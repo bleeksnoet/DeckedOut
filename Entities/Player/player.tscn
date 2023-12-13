@@ -449,7 +449,6 @@ shape = SubResource("CapsuleShape2D_0366h")
 
 [node name="Crumbdropper" type="Timer" parent="."]
 wait_time = 0.4
-autostart = true
 
 [connection signal="died" from="HPmanager" to="." method="_on_hpmanager_died"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
