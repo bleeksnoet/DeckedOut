@@ -41,7 +41,6 @@ zoom = Vector2(1.4, 1.4)
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("1_svl02")]
 light_mask = 0
