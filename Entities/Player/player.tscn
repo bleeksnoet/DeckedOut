@@ -363,6 +363,7 @@ collision_layer = 0
 script = ExtResource("1_ebfo8")
 
 [node name="Shadow" type="ColorRect" parent="."]
+visible = false
 y_sort_enabled = true
 offset_left = -16.0
 offset_top = 21.0
@@ -415,7 +416,6 @@ offset = Vector2(250, 0)
 metadata/_edit_lock_ = true
 
 [node name="WeaponSystem" parent="." instance=ExtResource("6_t05bb")]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, 10)
 monitoring = false
@@ -449,6 +449,7 @@ shape = SubResource("CapsuleShape2D_0366h")
 
 [node name="Crumbdropper" type="Timer" parent="."]
 wait_time = 0.4
+autostart = true
 
 [connection signal="died" from="HPmanager" to="." method="_on_hpmanager_died"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

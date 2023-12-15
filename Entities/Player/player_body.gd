@@ -12,6 +12,8 @@ var mainspeed = 400
 @onready var Hitbox = $Hitbox/CollisionShape2D
 @onready var animstate = animtree.get("parameters/playback")
 
+var relicbeam = preload("res://Systems/relicseekerbeam.tscn")
+
 #ai detection stuff
 var breadcrumbsbig = true
 var breadcrumb = preload("res://NewAITest/bread_crumb.tscn")
@@ -56,6 +58,7 @@ func _ready():
 	Scores.Health = HPmanager.current_health
 	
 func _physics_process(delta):
+	
 	direction.x = Input.get_action_strength("Walk_East") - Input.get_action_strength("Walk_West")
 	direction.y = Input.get_action_strength("Walk_South") - Input.get_action_strength("Walk_North")
 	direction = direction.normalized()

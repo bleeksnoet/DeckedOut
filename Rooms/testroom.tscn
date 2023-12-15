@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://4ubvvejtk40f"]
+[gd_scene load_steps=9 format=3 uid="uid://4ubvvejtk40f"]
 
 [ext_resource type="PackedScene" uid="uid://dxgsql8yh6824" path="res://Entities/Player/player.tscn" id="1_3lepq"]
 [ext_resource type="PackedScene" uid="uid://df1b4wtr3el6f" path="res://Assets/dungeontiles.tscn" id="1_85t52"]
 [ext_resource type="PackedScene" uid="uid://dnm5b3tsgrdw5" path="res://GUI and Menus/gui.tscn" id="1_svl02"]
 [ext_resource type="PackedScene" uid="uid://4jyf40155j12" path="res://Systems/zoomable_cam.tscn" id="3_o4ord"]
 [ext_resource type="PackedScene" uid="uid://c4aqskwwst6gq" path="res://Assets/relic_spawnpoints.tscn" id="4_hwo5q"]
+[ext_resource type="PackedScene" uid="uid://t02rqkx4ibjf" path="res://Entities/Enemies/roaming_skeleton.tscn" id="6_atwc0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_umfns"]
+font_color = Color(0.352941, 0.341176, 0.498039, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugeuy"]
 
 [node name="testroom" type="Node2D"]
 
@@ -23,6 +29,7 @@ offset_bottom = 2366.0
 text = "RMB - seek relic
 Hold Shift - Sneak
 Find the relic and bring it back!"
+label_settings = SubResource("LabelSettings_umfns")
 
 [node name="Player" parent="." instance=ExtResource("1_3lepq")]
 y_sort_enabled = true
@@ -37,6 +44,7 @@ offset_bottom = 489.0
 color = Color(0, 0, 0, 1)
 
 [node name="ZoomableCam" parent="Player" instance=ExtResource("3_o4ord")]
+material = SubResource("ShaderMaterial_ugeuy")
 zoom = Vector2(1.4, 1.4)
 metadata/_edit_lock_ = true
 
@@ -66,5 +74,8 @@ position = Vector2(-862, -347)
 
 [node name="RelicDrop" parent="RelicSpawnpoints" index="5"]
 position = Vector2(374, -219)
+
+[node name="RoamingSkeleton" parent="." instance=ExtResource("6_atwc0")]
+position = Vector2(1459, 2266)
 
 [editable path="RelicSpawnpoints"]

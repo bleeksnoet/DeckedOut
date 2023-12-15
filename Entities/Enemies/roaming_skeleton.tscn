@@ -1,15 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://fxmqcn27ijx8"]
+[gd_scene load_steps=46 format=3 uid="uid://t02rqkx4ibjf"]
 
-[ext_resource type="Script" path="res://Entities/Enemies/Sentry/basic_enemy_test.gd" id="1_0jvgj"]
-[ext_resource type="Texture2D" uid="uid://cgjbwbi1na5v7" path="res://Assets/free_skeleton_v002/Sprites/Skeleton.png" id="2_prfag"]
-[ext_resource type="PackedScene" uid="uid://dt1gsskrc8dh6" path="res://Systems/nav_sys.tscn" id="4_07tqk"]
-[ext_resource type="Texture2D" uid="uid://dbcawf6lgvce7" path="res://Assets/Particles/SMALL SMOKE.png" id="4_i674g"]
+[ext_resource type="Texture2D" uid="uid://cgjbwbi1na5v7" path="res://Assets/free_skeleton_v002/Sprites/Skeleton.png" id="1_fjrhx"]
+[ext_resource type="PackedScene" uid="uid://dv25mfkf2oaoa" path="res://NewAITest/ai_node.tscn" id="2_t2fhc"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7qql4"]
-light_mode = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyjh"]
-size = Vector2(44, 21)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y0nn2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1i4w2"]
 animation = &"Idle_south"
@@ -104,7 +98,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3n53"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hhbyh"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3canc"]
 states/End/position = Vector2(497, 149.5)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_h7rmb")
 states/Idle/position = Vector2(-68, -194.5)
@@ -120,7 +114,7 @@ states/Start/position = Vector2(523, 430.5)
 states/Walking/node = SubResource("AnimationNodeBlendSpace2D_kppj2")
 states/Walking/position = Vector2(348, 313)
 transitions = ["Walking", "Idle_north", SubResource("AnimationNodeStateMachineTransition_06cql"), "Walking", "Idle_west", SubResource("AnimationNodeStateMachineTransition_jm06o"), "Walking", "Idle_east", SubResource("AnimationNodeStateMachineTransition_tgo0k"), "Walking", "Idle_south", SubResource("AnimationNodeStateMachineTransition_tp4we"), "Idle_west", "Walking", SubResource("AnimationNodeStateMachineTransition_sc54t"), "Idle_north", "Walking", SubResource("AnimationNodeStateMachineTransition_ibwie"), "Idle_east", "Walking", SubResource("AnimationNodeStateMachineTransition_rswva"), "Idle_south", "Walking", SubResource("AnimationNodeStateMachineTransition_iy856"), "Start", "Idle_east", SubResource("AnimationNodeStateMachineTransition_wlrb0"), "Idle_south", "Idle_west", SubResource("AnimationNodeStateMachineTransition_m2v1n"), "Idle_west", "Idle_north", SubResource("AnimationNodeStateMachineTransition_nbmpu"), "Idle_north", "Idle_east", SubResource("AnimationNodeStateMachineTransition_r4nry"), "Idle_east", "Idle_south", SubResource("AnimationNodeStateMachineTransition_egkmj"), "Idle_south", "Idle_east", SubResource("AnimationNodeStateMachineTransition_cy3ur"), "Idle_east", "Idle_north", SubResource("AnimationNodeStateMachineTransition_xngke"), "Idle_north", "Idle_west", SubResource("AnimationNodeStateMachineTransition_5lgo7"), "Idle_west", "Idle_south", SubResource("AnimationNodeStateMachineTransition_x3n53")]
-graph_offset = Vector2(-158, -2)
+graph_offset = Vector2(-100, 186)
 
 [sub_resource type="Animation" id="Animation_0pk5s"]
 resource_name = "Idle_east"
@@ -346,140 +340,33 @@ _data = {
 "Walk_West": SubResource("Animation_8bt6c")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jwxkm"]
-atlas = ExtResource("4_i674g")
-region = Rect2(0, 0, 15, 11)
+[node name="RoamingSkeleton" type="Node2D"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvgts"]
-atlas = ExtResource("4_i674g")
-region = Rect2(15, 0, 15, 11)
+[node name="AI_Node" parent="." instance=ExtResource("2_t2fhc")]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbclf"]
-atlas = ExtResource("4_i674g")
-region = Rect2(30, 0, 15, 11)
+[node name="VisionHint" type="Polygon2D" parent="AI_Node/DetectionArea" index="0"]
+position = Vector2(51, 0)
+color = Color(0.823529, 0.141176, 0.262745, 0.478431)
+polygon = PackedVector2Array(0, -8, 0, 8, 9, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wyhn"]
-atlas = ExtResource("4_i674g")
-region = Rect2(45, 0, 15, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2b0mm"]
-atlas = ExtResource("4_i674g")
-region = Rect2(60, 0, 15, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vior4"]
-atlas = ExtResource("4_i674g")
-region = Rect2(75, 0, 15, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u536v"]
-atlas = ExtResource("4_i674g")
-region = Rect2(90, 0, 15, 11)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kv5ds"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jwxkm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvgts")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hbclf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wyhn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2b0mm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vior4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u536v")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"Dust_Trail",
-"speed": 7.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxs55"]
-radius = 18.0
-height = 50.0
-
-[node name="StaringEnemy" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("1_0jvgj")
-
-[node name="Shadow" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = 24.0
-offset_right = 20.0
-offset_bottom = 33.0
-color = Color(0.164706, 0.164706, 0.164706, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_7qql4")
-scale = Vector2(4, 4)
-texture = ExtResource("2_prfag")
+[node name="Sprite2D" type="Sprite2D" parent="AI_Node"]
+material = SubResource("CanvasItemMaterial_y0nn2")
+scale = Vector2(-4, 4)
+texture = ExtResource("1_fjrhx")
 hframes = 4
 vframes = 12
-frame = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 23)
-shape = SubResource("RectangleShape2D_tiyjh")
-
-[node name="RunafterTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_hhbyh")
+[node name="AnimationTree" type="AnimationTree" parent="AI_Node"]
+tree_root = SubResource("AnimationNodeStateMachine_3canc")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walking/blend_position = Vector2(-0.0013411, 0.973856)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AI_Node"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_uaykp")
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-30, 15)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_kv5ds")
-animation = &"Dust_Trail"
-
-[node name="NavSys" parent="." instance=ExtResource("4_07tqk")]
-
-[node name="StrikeBox" parent="NavSys/RotatoNodo" index="1" groups=["T5"]]
-
-[node name="CollisionShape2D" parent="NavSys/RotatoNodo/StrikeBox" index="0"]
-position = Vector2(41, 0)
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-1, 15)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_fxs55")
-
-[node name="StrikingTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="RunafterTimer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="NavSys/RotatoNodo/Detection" to="." method="_on_detection_area_entered"]
-[connection signal="area_exited" from="NavSys/RotatoNodo/Detection" to="." method="_on_detection_area_exited"]
-[connection signal="area_entered" from="NavSys/RotatoNodo/InrangeSB" to="." method="_on_inrange_sb_area_entered"]
-[connection signal="timeout" from="StrikingTimer" to="." method="_on_striking_timer_timeout"]
-
-[editable path="NavSys"]
+[editable path="AI_Node"]

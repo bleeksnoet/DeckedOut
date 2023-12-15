@@ -33,6 +33,10 @@ GodotEssentialsAchievements="*res://addons/2d_essentials/autoload/achievements/a
 GodotEssentialsEnvironment="*res://addons/2d_essentials/autoload/dotenv/godotenv.gd"
 Scores="*res://GUI and Menus/Scores.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/2d_essentials/plugin.cfg")
