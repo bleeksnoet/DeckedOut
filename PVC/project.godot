@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Plants Vs Clones"
 config/description="Sprite size on base will be 64x64"
+run/main_scene="res://Levels/lawn_test.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,6 +23,7 @@ config/icon="res://icon.svg"
 2d_physics/layer_3="PlantStrikeBox"
 2d_physics/layer_4="PlantHitBox"
 2d_physics/layer_5="WallCol"
+2d_physics/layer_6="EnemyActivator"
 
 [rendering]
 

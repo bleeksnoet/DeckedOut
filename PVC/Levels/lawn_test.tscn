@@ -1,24 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2hqo2deamq8q"]
+[gd_scene load_steps=4 format=3 uid="uid://b2hqo2deamq8q"]
 
 [ext_resource type="PackedScene" uid="uid://cp7dp31ij2maa" path="res://plants/basic_plant.tscn" id="1_as3sk"]
+[ext_resource type="PackedScene" uid="uid://conjdg42oly5a" path="res://Zombies/zombie.tscn" id="2_g3ubc"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jowuc"]
+b = Vector2(0, 384)
 
 [node name="LawnTest" type="Node2D"]
 
 [node name="LawnTiles" type="Node2D" parent="."]
 z_index = -1
-
-[node name="LawnGrassA" type="ColorRect" parent="LawnTiles"]
-offset_right = 64.0
-offset_bottom = 64.0
-color = Color(0, 0.4, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="LawnGrassB" type="ColorRect" parent="LawnTiles"]
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 128.0
-color = Color(0, 0.501961, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="LawnGrassA2" type="ColorRect" parent="LawnTiles"]
 offset_left = 64.0
@@ -46,6 +37,19 @@ metadata/_edit_use_anchors_ = true
 offset_left = 128.0
 offset_top = 64.0
 offset_right = 192.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA48" type="ColorRect" parent="LawnTiles"]
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB48" type="ColorRect" parent="LawnTiles"]
+offset_top = 64.0
+offset_right = 64.0
 offset_bottom = 128.0
 color = Color(0, 0.501961, 0, 1)
 metadata/_edit_use_anchors_ = true
@@ -736,20 +740,59 @@ offset_bottom = 320.0
 color = Color(0, 0.501961, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="BasicPlant" parent="." instance=ExtResource("1_as3sk")]
-position = Vector2(32, 32)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(451, 192)
 
-[node name="BasicPlant2" parent="." instance=ExtResource("1_as3sk")]
-position = Vector2(32, 96)
+[node name="LawnEdge" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
 
-[node name="BasicPlant3" parent="." instance=ExtResource("1_as3sk")]
-position = Vector2(32, 160)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LawnEdge"]
+position = Vector2(704, 0)
+shape = SubResource("SegmentShape2D_jowuc")
 
-[node name="BasicPlant4" parent="." instance=ExtResource("1_as3sk")]
+[node name="TempZombies" type="Node2D" parent="LawnEdge"]
+
+[node name="Zombie" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(768, 224)
+
+[node name="Zombie4" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(800, 352)
+
+[node name="Zombie5" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(928, 32)
+
+[node name="Zombie2" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(744, 96)
+
+[node name="Zombie3" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(840, 224)
+
+[node name="TempPlants" type="Node2D" parent="."]
+
+[node name="BasicPlant" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(352, 32)
+
+[node name="BasicPlant2" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(352, 96)
+
+[node name="BasicPlant3" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(224, 160)
+
+[node name="BasicPlant4" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(160, 224)
+
+[node name="BasicPlant7" parent="TempPlants" instance=ExtResource("1_as3sk")]
 position = Vector2(32, 224)
 
-[node name="BasicPlant5" parent="." instance=ExtResource("1_as3sk")]
-position = Vector2(32, 288)
+[node name="BasicPlant5" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(160, 288)
 
-[node name="BasicPlant6" parent="." instance=ExtResource("1_as3sk")]
-position = Vector2(32, 352)
+[node name="BasicPlant8" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(288, 96)
+
+[node name="BasicPlant9" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(480, 352)
+
+[node name="BasicPlant6" parent="TempPlants" instance=ExtResource("1_as3sk")]
+position = Vector2(96, 352)

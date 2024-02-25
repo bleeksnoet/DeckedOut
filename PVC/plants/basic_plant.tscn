@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp7dp31ij2maa"]
+[gd_scene load_steps=4 format=3 uid="uid://cp7dp31ij2maa"]
 
+[ext_resource type="Script" path="res://plants/basic_plant.gd" id="1_ia1t6"]
 [ext_resource type="Texture2D" uid="uid://bunncuafkwd5u" path="res://icon.svg" id="1_uxuld"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kpcmq"]
+b = Vector2(768, 0)
+
 [node name="BasicPlant" type="Node2D"]
+script = ExtResource("1_ia1t6")
 
 [node name="SprPlant" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -15,4 +20,24 @@ NOTE TO SELF FOR PVC:
 ADD A AREA DETECTION TO THE ENTIRE FUCKING FIELD SO THE PLANTS KNOW WHEN A ZOMBIE IS LEGAL TO HIT FUCK RAYCASTS"
 scale = Vector2(1, 8)
 target_position = Vector2(768, 0)
-collision_mask = 18
+collision_mask = 34
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="EnemyAreaDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAreaDetector"]
+shape = SubResource("SegmentShape2D_kpcmq")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[node name="BarrelEnd" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[connection signal="area_entered" from="EnemyAreaDetector" to="." method="_on_enemy_area_detector_area_entered"]
+[connection signal="area_exited" from="EnemyAreaDetector" to="." method="_on_enemy_area_detector_area_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

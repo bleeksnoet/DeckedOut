@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://conjdg42oly5a"]
+
+[ext_resource type="Script" path="res://Zombies/Zombie.gd" id="1_srvlq"]
+[ext_resource type="Texture2D" uid="uid://bunncuafkwd5u" path="res://icon.svg" id="2_8j4c2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83g6x"]
+size = Vector2(64, 64)
+
+[node name="Zombie" type="CharacterBody2D"]
+script = ExtResource("1_srvlq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8j4c2")
+
+[node name="HitBoxActivator" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxActivator"]
+shape = SubResource("RectangleShape2D_83g6x")
+
+[node name="HitBox" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_83g6x")
+
+[connection signal="area_entered" from="HitBoxActivator" to="." method="_on_hit_box_activator_area_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
