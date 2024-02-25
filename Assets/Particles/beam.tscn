@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi8tutyntp4xe"]
+
+[ext_resource type="Texture2D" uid="uid://gdjxjv5s2q3l" path="res://Assets/Particles/particledust.png" id="1_17dl6"]
+
+[sub_resource type="Gradient" id="Gradient_i6iod"]
+offsets = PackedFloat32Array(0.123457, 0.465021, 0.76749, 0.940329)
+colors = PackedColorArray(0, 0, 0, 0, 0.458824, 0.615686, 1, 1, 0.458824, 0.615686, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xbky0"]
+gradient = SubResource("Gradient_i6iod")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xh8wf"]
+emission_shape = 1
+emission_sphere_radius = 16.03
+particle_flag_disable_z = true
+gravity = Vector3(2.08165e-12, 20, 2.08165e-12)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_xbky0")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_xh8wf")
+texture = ExtResource("1_17dl6")
+randomness = 0.53
