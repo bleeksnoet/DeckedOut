@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7dp31ij2maa"]
+
+[ext_resource type="Texture2D" uid="uid://bunncuafkwd5u" path="res://icon.svg" id="1_uxuld"]
+
+[node name="BasicPlant" type="Node2D"]
+
+[node name="SprPlant" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uxuld")
+
+[node name="EnemyDetector" type="RayCast2D" parent="."]
+editor_description = "This is not gonna work as it is, needs code that grows the raycast to the edge of the level once the plant spawns.
+
+NOTE TO SELF FOR PVC:
+ADD A AREA DETECTION TO THE ENTIRE FUCKING FIELD SO THE PLANTS KNOW WHEN A ZOMBIE IS LEGAL TO HIT FUCK RAYCASTS"
+scale = Vector2(1, 8)
+target_position = Vector2(768, 0)
+collision_mask = 18

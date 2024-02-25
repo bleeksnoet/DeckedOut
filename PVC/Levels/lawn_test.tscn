@@ -1,0 +1,755 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hqo2deamq8q"]
+
+[ext_resource type="PackedScene" uid="uid://cp7dp31ij2maa" path="res://plants/basic_plant.tscn" id="1_as3sk"]
+
+[node name="LawnTest" type="Node2D"]
+
+[node name="LawnTiles" type="Node2D" parent="."]
+z_index = -1
+
+[node name="LawnGrassA" type="ColorRect" parent="LawnTiles"]
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB" type="ColorRect" parent="LawnTiles"]
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA2" type="ColorRect" parent="LawnTiles"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB2" type="ColorRect" parent="LawnTiles"]
+offset_left = 64.0
+offset_right = 128.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA3" type="ColorRect" parent="LawnTiles"]
+offset_left = 128.0
+offset_right = 192.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB3" type="ColorRect" parent="LawnTiles"]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA4" type="ColorRect" parent="LawnTiles"]
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB4" type="ColorRect" parent="LawnTiles"]
+offset_left = 192.0
+offset_right = 256.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA5" type="ColorRect" parent="LawnTiles"]
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB5" type="ColorRect" parent="LawnTiles"]
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA6" type="ColorRect" parent="LawnTiles"]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB6" type="ColorRect" parent="LawnTiles"]
+offset_left = 320.0
+offset_right = 384.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA7" type="ColorRect" parent="LawnTiles"]
+offset_left = 384.0
+offset_right = 448.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB7" type="ColorRect" parent="LawnTiles"]
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 448.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA8" type="ColorRect" parent="LawnTiles"]
+offset_left = 448.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB8" type="ColorRect" parent="LawnTiles"]
+offset_left = 448.0
+offset_right = 512.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA9" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_right = 576.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB9" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA10" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 64.0
+offset_right = 640.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB10" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_right = 640.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA11" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_right = 576.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB11" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA12" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 64.0
+offset_right = 640.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB12" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_right = 640.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA13" type="ColorRect" parent="LawnTiles"]
+offset_top = 128.0
+offset_right = 64.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB13" type="ColorRect" parent="LawnTiles"]
+offset_top = 192.0
+offset_right = 64.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA14" type="ColorRect" parent="LawnTiles"]
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 128.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB14" type="ColorRect" parent="LawnTiles"]
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 192.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA15" type="ColorRect" parent="LawnTiles"]
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB15" type="ColorRect" parent="LawnTiles"]
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA16" type="ColorRect" parent="LawnTiles"]
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 256.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB16" type="ColorRect" parent="LawnTiles"]
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 256.0
+offset_bottom = 192.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA17" type="ColorRect" parent="LawnTiles"]
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 320.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB17" type="ColorRect" parent="LawnTiles"]
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA18" type="ColorRect" parent="LawnTiles"]
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 384.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB18" type="ColorRect" parent="LawnTiles"]
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 192.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA19" type="ColorRect" parent="LawnTiles"]
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 448.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB19" type="ColorRect" parent="LawnTiles"]
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 448.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA20" type="ColorRect" parent="LawnTiles"]
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 512.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB20" type="ColorRect" parent="LawnTiles"]
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 192.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB21" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 576.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA21" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 192.0
+offset_right = 640.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA22" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 576.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB22" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 576.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA23" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 192.0
+offset_right = 640.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB23" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 192.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA24" type="ColorRect" parent="LawnTiles"]
+offset_top = 256.0
+offset_right = 64.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB24" type="ColorRect" parent="LawnTiles"]
+offset_top = 320.0
+offset_right = 64.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA25" type="ColorRect" parent="LawnTiles"]
+offset_left = 64.0
+offset_top = 320.0
+offset_right = 128.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB25" type="ColorRect" parent="LawnTiles"]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 128.0
+offset_bottom = 320.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA26" type="ColorRect" parent="LawnTiles"]
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB26" type="ColorRect" parent="LawnTiles"]
+offset_left = 128.0
+offset_top = 320.0
+offset_right = 192.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA27" type="ColorRect" parent="LawnTiles"]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 256.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB27" type="ColorRect" parent="LawnTiles"]
+offset_left = 192.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 320.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA28" type="ColorRect" parent="LawnTiles"]
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 320.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB28" type="ColorRect" parent="LawnTiles"]
+offset_left = 256.0
+offset_top = 320.0
+offset_right = 320.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA29" type="ColorRect" parent="LawnTiles"]
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB29" type="ColorRect" parent="LawnTiles"]
+offset_left = 320.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 320.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA30" type="ColorRect" parent="LawnTiles"]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 448.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB30" type="ColorRect" parent="LawnTiles"]
+offset_left = 384.0
+offset_top = 320.0
+offset_right = 448.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA31" type="ColorRect" parent="LawnTiles"]
+offset_left = 448.0
+offset_top = 320.0
+offset_right = 512.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB31" type="ColorRect" parent="LawnTiles"]
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 320.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB32" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 320.0
+offset_right = 576.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA32" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA33" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 576.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB33" type="ColorRect" parent="LawnTiles"]
+offset_left = 512.0
+offset_top = 320.0
+offset_right = 576.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA34" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB34" type="ColorRect" parent="LawnTiles"]
+offset_left = 576.0
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 320.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA35" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_right = 704.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB35" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 64.0
+offset_right = 704.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA36" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB36" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_right = 768.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA37" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_right = 704.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB37" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 64.0
+offset_right = 704.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA38" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 128.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB38" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_right = 768.0
+offset_bottom = 64.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB39" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA39" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA40" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB40" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA41" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 256.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB41" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 192.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB42" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 320.0
+offset_right = 704.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA42" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 320.0
+offset_right = 768.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA43" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 256.0
+offset_right = 704.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB43" type="ColorRect" parent="LawnTiles"]
+offset_left = 640.0
+offset_top = 320.0
+offset_right = 704.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA45" type="ColorRect" parent="LawnTiles"]
+offset_left = 768.0
+offset_right = 832.0
+offset_bottom = 64.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB45" type="ColorRect" parent="LawnTiles"]
+offset_left = 768.0
+offset_top = 64.0
+offset_right = 832.0
+offset_bottom = 128.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA46" type="ColorRect" parent="LawnTiles"]
+offset_left = 768.0
+offset_top = 128.0
+offset_right = 832.0
+offset_bottom = 192.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB46" type="ColorRect" parent="LawnTiles"]
+offset_left = 768.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 256.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA47" type="ColorRect" parent="LawnTiles"]
+offset_left = 768.0
+offset_top = 256.0
+offset_right = 832.0
+offset_bottom = 320.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB47" type="ColorRect" parent="LawnTiles"]
+offset_left = 768.0
+offset_top = 320.0
+offset_right = 832.0
+offset_bottom = 384.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassA44" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 320.0
+offset_right = 768.0
+offset_bottom = 384.0
+color = Color(0, 0.4, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LawnGrassB44" type="ColorRect" parent="LawnTiles"]
+offset_left = 704.0
+offset_top = 256.0
+offset_right = 768.0
+offset_bottom = 320.0
+color = Color(0, 0.501961, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BasicPlant" parent="." instance=ExtResource("1_as3sk")]
+position = Vector2(32, 32)
+
+[node name="BasicPlant2" parent="." instance=ExtResource("1_as3sk")]
+position = Vector2(32, 96)
+
+[node name="BasicPlant3" parent="." instance=ExtResource("1_as3sk")]
+position = Vector2(32, 160)
+
+[node name="BasicPlant4" parent="." instance=ExtResource("1_as3sk")]
+position = Vector2(32, 224)
+
+[node name="BasicPlant5" parent="." instance=ExtResource("1_as3sk")]
+position = Vector2(32, 288)
+
+[node name="BasicPlant6" parent="." instance=ExtResource("1_as3sk")]
+position = Vector2(32, 352)
