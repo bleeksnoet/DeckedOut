@@ -1,0 +1,7 @@
+res://Rooms/testroom.tscn
+res://Entities/Player/pixelate.gdshader
+res://Entities/Player/player.tscn
+res://Entities/Enemies/Sentry/StaringEnemy.tscn
+res://Entities/Enemies/roaming_skeleton.tscn
+res://NewAITest/bread_crumb.tscn
+res://NewAITest/Quiet_Bread_Crumb.tscn

@@ -1,0 +1,179 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1707312776
+BreadCrumb.gd::GDScript::-1::1702460717::0::1::::<>Area2D<>::
+icon.svg::CompressedTexture2D::8085347317951332562::1695323796::1695325779::1::::<><>::
+Relicseekerbeam.gd::GDScript::-1::1702639072::0::1::::<>CharacterBody2D<>::
+ZoomableCam.gd::GDScript::-1::1702553992::0::1::::<>Camera2D<>::
+::res://addons/::1702460717
+::res://addons/2d_essentials/::1702547164
+plugin.cfg::TextFile::-1::1702547164::0::1::::<><>::
+plugin.gd::GDScript::-1::1702547164::0::1::::<>EditorPlugin<>::
+::res://addons/2d_essentials/autoload/::1702547164
+helpers.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsPluginHelpers<>Node<>::
+::res://addons/2d_essentials/autoload/achievements/::1702547164
+achievements.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsPluginAchievements<>Node<>::
+achievements.tscn::PackedScene::1643075068976340874::1702547164::0::1::::<><>::res://addons/2d_essentials/autoload/achievements/achievements.gd
+::res://addons/2d_essentials/autoload/audio/::1702547164
+audio.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsPluginAudio<>Node<>::
+::res://addons/2d_essentials/autoload/dotenv/::1702547164
+godotenv.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsPluginGodotEnvironment<>Node<>::
+::res://addons/2d_essentials/autoload/scene_transitions/::1702547164
+scene_transition.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsSceneTransition<>Node<>::
+scene_transitioner.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsPluginSceneTransitioner<>Node<>::
+::res://addons/2d_essentials/camera/::1702547164
+shake_camera_component.gd::GDScript::-1::1702547164::0::1::::ShakeCameraComponent2D<>Node2D<>::
+::res://addons/2d_essentials/icons/::1702547164
+arrow_clockwise.svg::CompressedTexture2D::2129888711867912262::1702547164::1702547164::1::::<><>::
+arrow_cross.svg::CompressedTexture2D::7811667385561673592::1702547164::1702547164::1::::<><>::
+arrow_diagonal.png::CompressedTexture2D::585730608108314004::1702547164::1702547164::1::::<><>::
+bow.png::CompressedTexture2D::6186400081429148833::1702547164::1702547164::1::::<><>::
+Godot-2D-Essentials-Title.png::CompressedTexture2D::3877783266367027682::1702547164::1702547164::1::::<><>::
+menu_grid.png::CompressedTexture2D::6545760100687155388::1702547164::1702547164::1::::<><>::
+share2.png::CompressedTexture2D::5874926432179880504::1702547164::1702547164::1::::<><>::
+suit_hearts.svg::CompressedTexture2D::7786436763336031375::1702547164::1702547164::1::::<><>::
+target.png::CompressedTexture2D::2807457742521174511::1702547164::1702547164::1::::<><>::
+video.png::CompressedTexture2D::4709912202474675891::1702547164::1702547164::1::::<><>::
+::res://addons/2d_essentials/movement/::1702547164
+oscilator_component.gd::GDScript::-1::1702547164::0::1::::OscilatorComponent<>Node2D<>::
+projectile_component.gd::GDScript::-1::1702547164::0::1::::ProjectileComponent<>Node2D<>::
+rotator_component.gd::GDScript::-1::1702547164::0::1::::RotatorComponent<>Node2D<>::
+::res://addons/2d_essentials/movement/motion/::1702547164
+godot_essentials_motion.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsMotion<>Node2D<>::
+grid_movement_component.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsGridMovementComponent<>Node2D<>::
+platformer_movement_component.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsPlatformerMovementComponent<>GodotEssentialsMotion<>::
+top_down_movement_component.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsTopDownMovementComponent<>GodotEssentialsMotion<>::
+::res://addons/2d_essentials/patterns/::1695323796
+::res://addons/2d_essentials/patterns/finite_state_machine/::1702547164
+finite_state_machine.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsFiniteStateMachine<>Node<>::
+state.gd::GDScript::-1::1702547164::0::1::::GodotEssentialsState<>Node<>::
+::res://addons/2d_essentials/survivability/::1702547164
+health_component.gd::GDScript::-1::1702547164::0::1::::HealthComponent<>Node<>::
+::res://addons/2d_essentials/update/::1702547164
+download_update_panel.gd::GDScript::-1::1702547164::0::1::::<>Control<>::
+download_update_panel.tscn::PackedScene::2682662683784681060::1702547164::0::1::::<><>::res://addons/2d_essentials/update/download_update_panel.gd<>uid://bvior2tib26b3
+failed_download_panel.tscn::PackedScene::4466411238629032478::1702547164::0::1::::<><>::uid://bvior2tib26b3
+updated_version_panel.tscn::PackedScene::1365173348147835375::1702547164::0::1::::<><>::uid://bvior2tib26b3
+update_plugin_button.gd::GDScript::-1::1702547164::0::1::::UpdateGodot2DEssentialsButton<>Button<>::
+update_plugin_button.tscn::PackedScene::4209894855326893967::1702547164::0::1::::<><>::res://addons/2d_essentials/update/update_plugin_button.gd<>uid://behrceg6tb7ns
+::res://Assets/::1702460717
+dungeontiles.tscn::PackedScene::7563993781566005391::1702460717::0::1::::<><>::uid://0rtuu283gmol
+LightSprite.png::CompressedTexture2D::2320716918380721545::1702460717::1702460717::1::::<><>::
+placeholdertile.png::CompressedTexture2D::1316735279867949664::1695323795::1695325780::1::::<><>::
+pngegg.png::CompressedTexture2D::6172526234184025455::1702460717::1702460717::1::::<><>::
+relic_spawnpoints.gd::GDScript::-1::1702460717::0::1::::<>Node2D<>::
+relic_spawnpoints.tscn::PackedScene::6809322009307307600::1702460717::0::1::::<><>::res://Assets/relic_spawnpoints.gd<>uid://d1p1nehfskg24
+::res://Assets/Attacksprites/::1702460717
+attack_sprite.tscn::PackedScene::3887646505022441959::1702460717::0::1::::<><>::uid://tmqp25e77jj3
+SP301_01.png::CompressedTexture2D::1359360285664528754::1702460717::1702460717::1::::<><>::
+SP301_02.png::CompressedTexture2D::4144366161910537884::1702460717::1702460717::1::::<><>::
+SP301_03.png::CompressedTexture2D::3983059026811154253::1702460717::1702460717::1::::<><>::
+SP301_04.png::CompressedTexture2D::212247161491529423::1702460717::1702460717::1::::<><>::
+SP301_05.png::CompressedTexture2D::1917677886719242496::1702460717::1702460717::1::::<><>::
+::res://Assets/dungeontiles/::1702460717
+Dungeon tileset.png::CompressedTexture2D::1791005945224245223::1702460717::1702460717::1::::<><>::
+::res://Assets/free_skeleton_v002/::1695323795
+Readme.txt::TextFile::-1::1695323795::0::1::::<><>::
+::res://Assets/free_skeleton_v002/Extra/::1695323795
+shadow.png::CompressedTexture2D::9087280931850781308::1695323795::1695325770::1::::<><>::
+::res://Assets/free_skeleton_v002/Sprites/::1695323795
+Skeleton.png::CompressedTexture2D::5212653899540122866::1695323795::1695325773::1::::<><>::
+::res://Assets/Particles/::1702636847
+beam.tscn::PackedScene::3017246273057626958::1702636847::0::1::::<><>::uid://gdjxjv5s2q3l
+BIG IMPACT SMOKE.png::CompressedTexture2D::1817791747805938346::1702460717::1702460717::1::::<><>::
+BIG SMOKE.png::CompressedTexture2D::3256117137535998392::1702460717::1702460717::1::::<><>::
+DASH SMOKE 2.png::CompressedTexture2D::924883168321137194::1702460717::1702460717::1::::<><>::
+DASH SMOKE.png::CompressedTexture2D::8525614944242986899::1702460717::1702460717::1::::<><>::
+EXPLOSION.png::CompressedTexture2D::1483531104834110432::1702460717::1702460717::1::::<><>::
+IMPACT 1.png::CompressedTexture2D::8217101980840666148::1702460717::1702460717::1::::<><>::
+IMPACT DUST KICK.png::CompressedTexture2D::5174363575373533440::1702460717::1702460717::1::::<><>::
+MEDIUM SMOKE.png::CompressedTexture2D::8608212893193635485::1702460717::1702460717::1::::<><>::
+particledust.png::CompressedTexture2D::427914227824325883::1702460717::1702460717::1::::<><>::
+SIDE IMPACT.png::CompressedTexture2D::6332204541866605439::1702460717::1702460717::1::::<><>::
+SIDE PUFF.png::CompressedTexture2D::3184228041409953726::1702460717::1702460717::1::::<><>::
+SIDE SMOKE 1.png::CompressedTexture2D::2899909273504840922::1702460717::1702460717::1::::<><>::
+SIDE SMOKE 2.png::CompressedTexture2D::3072899664326689567::1702460717::1702460717::1::::<><>::
+SMALL IMPACT2.png::CompressedTexture2D::1015507502307306135::1702460717::1702460717::1::::<><>::
+SMALL IMPACT.png::CompressedTexture2D::4196561598976730758::1702460717::1702460717::1::::<><>::
+SMALL SIDE PUFF 2.png::CompressedTexture2D::7490651649691852995::1702460717::1702460717::1::::<><>::
+SMALL SIDE PUFF.png::CompressedTexture2D::1555373981141454273::1702460717::1702460717::1::::<><>::
+SMALL SMOKE 2.png::CompressedTexture2D::5520157672214112914::1702460717::1702460717::1::::<><>::
+SMALL SMOKE.png::CompressedTexture2D::7233619248705685976::1702460717::1702460717::1::::<><>::
+::res://Assets/Pixel-RPG_Prototype_v003/::1702460717
+Readme.txt::TextFile::-1::1695323794::0::1::::<><>::
+::res://Assets/Pixel-RPG_Prototype_v003/Extras/::1695323794
+Shadow.png::CompressedTexture2D::8959568805111958429::1695323794::1695325774::1::::<><>::
+::res://Assets/Pixel-RPG_Prototype_v003/Sprites/::1702460717
+::res://Assets/Pixel-RPG_Prototype_v003/Sprites/Prototype/::1695323794
+Prototype_Worksheet.png::CompressedTexture2D::2291425753143848086::1695323794::1695325776::1::::<><>::
+::res://Assets/raou_free_top_down_adventure/::1702460717
+Read-me.txt::TextFile::-1::1702460717::0::1::::<><>::
+slime.png::CompressedTexture2D::1742701182291207250::1702460717::1702460717::1::::<><>::
+spr_alex.png::CompressedTexture2D::5201747722267108430::1702460717::1702460717::1::::<><>::
+spr_anna.png::CompressedTexture2D::8943009886667774078::1702460717::1702460717::1::::<><>::
+spr_ardley.png::CompressedTexture2D::6364762966718504160::1702460717::1702460717::1::::<><>::
+spr_colt.png::CompressedTexture2D::8005065087365976424::1702460717::1702460717::1::::<><>::
+spr_ester.png::CompressedTexture2D::5094359445139139266::1702460717::1702460717::1::::<><>::
+spr_tom.png::CompressedTexture2D::3615722619414935115::1702460717::1702460717::1::::<><>::
+topDown_baseTiles.png::CompressedTexture2D::7290128499668975945::1702460717::1702460717::1::::<><>::
+::res://Assets/Scenes/::1702460717
+detectioncone.gd::GDScript::-1::1702460717::0::1::::<>Node2D<>::
+detectioncone.tscn::PackedScene::2911405878754826872::1702460717::0::1::::<><>::
+Ray1.gd::GDScript::-1::1702460717::0::1::::<>RayCast2D<>::
+::res://Assets/sounds/::1702460717
+explosion.wav::AudioStreamWAV::6869907318700646677::1702460717::1702460717::1::::<><>::
+hitHurt (1).wav::AudioStreamWAV::2401182116951407951::1702460717::1702460717::1::::<><>::
+hitHurt (2).wav::AudioStreamWAV::4938480237936888870::1702460717::1702460717::1::::<><>::
+hitHurt.wav::AudioStreamWAV::5961483882984708344::1702460717::1702460717::1::::<><>::
+jump.wav::AudioStreamWAV::7657927909217791649::1702460717::1702460717::1::::<><>::
+powerUp (1).wav::AudioStreamWAV::3594724467488596684::1702460717::1702460717::1::::<><>::
+powerUp.wav::AudioStreamWAV::5660896888276825736::1702460717::1702460717::1::::<><>::
+random (1).wav::AudioStreamWAV::1657842630397189885::1702460717::1702460717::1::::<><>::
+random (2).wav::AudioStreamWAV::3677953167089619779::1702460717::1702460717::1::::<><>::
+random.wav::AudioStreamWAV::3721448351274799819::1702460717::1702460717::1::::<><>::
+::res://Entities/::1702460717
+::res://Entities/Enemies/::1705657952
+roaming_skeleton.tscn::PackedScene::1386868047180918315::1705657952::0::1::::<><>::uid://cgjbwbi1na5v7::::res://Assets/free_skeleton_v002/Sprites/Skeleton.png<>uid://dv25mfkf2oaoa::::res://NewAITest/ai_node.tscn
+::res://Entities/Enemies/EnemyBase/::1702460717
+EnemyTemplate.gd::GDScript::-1::1702460717::0::1::::<>CharacterBody2D<>::
+enemy_template.tscn::PackedScene::634334209541403603::1702460717::0::1::::<><>::res://EnemyTemplate.gd<>uid://cgjbwbi1na5v7
+::res://Entities/Enemies/Sentry/::1705657952
+basic_enemy_test.gd::GDScript::-1::1702460717::0::1::::<>CharacterBody2D<>::
+StaringEnemy.tscn::PackedScene::399182209548215219::1705657952::0::1::::<><>::res://Entities/Enemies/Sentry/basic_enemy_test.gd<>uid://cgjbwbi1na5v7::::res://Assets/free_skeleton_v002/Sprites/Skeleton.png<>uid://dt1gsskrc8dh6::::res://Systems/nav_sys.tscn<>uid://dbcawf6lgvce7::::res://Assets/Particles/SMALL SMOKE.png
+::res://Entities/Loot/::1702460717
+Coin.gd::GDScript::-1::1702460717::0::1::::<>CharacterBody2D<>::
+coin.tscn::PackedScene::4098935124307571274::1702460717::0::1::::<><>::res://Entities/Loot/Coin.gd<>uid://dnguqvlljk1v7
+relic_drop.gd::GDScript::-1::1702460717::0::1::::<>Sprite2D<>::
+relic_drop.tscn::PackedScene::9016739730270397083::1702460717::0::1::::<><>::uid://dnguqvlljk1v7
+::res://Entities/Player/::1705937387
+pixelate.gdshader::Shader::-1::1705937387::0::1::::<><>::
+player.tscn::PackedScene::8787113829687140703::1705657952::0::1::::<><>::res://Entities/Player/player_body.gd<>uid://7v8phfsmiyyg::::res://Assets/Pixel-RPG_Prototype_v003/Sprites/Prototype/Prototype_Worksheet.png<>res://addons/2d_essentials/survivability/health_component.gd<>uid://8cf4sc4cgkhd::::res://Assets/LightSprite.png<>uid://ct7autxeipshb::::res://Assets/pngegg.png<>uid://c4mxqxl2im8bf::::res://Entities/Player/WeaponSystem.tscn
+player_body.gd::GDScript::-1::1702638215::0::1::::<>CharacterBody2D<>::
+weapon.gd::GDScript::-1::1695323795::0::1::::<>Area2D<>::
+WeaponSystem.tscn::PackedScene::6834516655741824427::1701440644::0::1::::<><>::res://Entities/Player/weapon.gd
+::res://GUI and Menus/::1702460717
+dmg_indicator.gd::GDScript::-1::1702460717::0::1::::<>Node2D<>::
+dmg_indicator.tscn::PackedScene::9132480281595348383::1702460717::0::1::::<><>::res://GUI and Menus/dmg_indicator.gd
+gui.gd::GDScript::-1::1702460717::0::1::::<>Control<>::
+gui.tscn::PackedScene::8098314347830956286::1702460717::0::1::::<><>::res://GUI and Menus/gui.gd<>uid://514upbgpxtgk
+hp_bar.tscn::PackedScene::2161136429103491402::1702460717::0::1::::<><>::
+Scores.gd::GDScript::-1::1702460717::0::1::::<>Node<>::
+::res://loaned stuff/::1702460717
+Player.gd::GDScript::-1::1702460717::0::1::::<>KinematicBody2D<>::
+tile_map.tscn::PackedScene::6708983183278135180::1702460717::0::1::::<><>::uid://db4nl7dbnollh
+::res://NewAITest/::1705657952
+ai_node.gd::GDScript::-1::1702482394::0::1::::<>CharacterBody2D<>::
+ai_node.tscn::PackedScene::8690809184476053660::1702482394::0::1::::<><>::res://NewAITest/ai_node.gd<>res://addons/2d_essentials/survivability/health_component.gd
+bread_crumb.gd::GDScript::-1::1702460717::0::1::::<>Area2D<>::
+bread_crumb.tscn::PackedScene::4040879514098576061::1705657952::0::1::::<><>::res://NewAITest/bread_crumb.gd
+QuietBreadCrumb.gd::GDScript::-1::1702460717::0::1::::<>Area2D<>::
+Quiet_Bread_Crumb.tscn::PackedScene::6123343056337540659::1705657952::0::1::::<><>::res://NewAITest/QuietBreadCrumb.gd
+::res://Rooms/::1705657952
+testroom.tscn::PackedScene::2076863348853211243::1705657952::0::1::::<><>::uid://dxgsql8yh6824::::res://Entities/Player/player.tscn<>uid://df1b4wtr3el6f::::res://Assets/dungeontiles.tscn<>uid://dnm5b3tsgrdw5::::res://GUI and Menus/gui.tscn<>uid://4jyf40155j12::::res://Systems/zoomable_cam.tscn<>uid://c4aqskwwst6gq::::res://Assets/relic_spawnpoints.tscn<>uid://t02rqkx4ibjf::::res://Entities/Enemies/roaming_skeleton.tscn
+::res://Systems/::1702638276
+ItemSpawnPoint.gd::GDScript::-1::1702460717::0::1::::<>RefCounted<>::
+item_spawn_point.tscn::PackedScene::1849061622362927711::1702460717::0::1::::<><>::res://ItemSpawnPoint.gd
+loottabletest.gd::GDScript::-1::1702460717::0::1::::<>RefCounted<>::
+Navbase.gd::GDScript::-1::1702460717::0::1::::<>Node<>::
+nav_sys.tscn::PackedScene::8546921309699081953::1702460717::0::1::::<><>::uid://bvng78i0bc7t8
+relicseekerbeam.tscn::PackedScene::831556134368470309::1702638276::0::1::::<><>::res://Relicseekerbeam.gd<>uid://bi8tutyntp4xe
+zoomable_cam.tscn::PackedScene::2055523565105262851::1702482757::0::1::::<><>::res://ZoomableCam.gd
