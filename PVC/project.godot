@@ -36,6 +36,7 @@ Click={
 2d_physics/layer_4="PlantHitBox"
 2d_physics/layer_5="WallCol"
 2d_physics/layer_6="EnemyActivator"
+2d_physics/layer_7="TileCol"
 
 [rendering]
 

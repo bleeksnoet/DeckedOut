@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2hqo2deamq8q"]
 
+[ext_resource type="PackedScene" uid="uid://cs4sktq5c13gu" path="res://Items/sprite_2d.tscn" id="2_67die"]
 [ext_resource type="PackedScene" uid="uid://conjdg42oly5a" path="res://Zombies/zombie.tscn" id="2_g3ubc"]
-[ext_resource type="PackedScene" uid="uid://c40h854t3v4kh" path="res://Inventory/custom_plant_item.tscn" id="2_hhgwb"]
-[ext_resource type="PackedScene" uid="uid://bruhwu7mjqsjn" path="res://Tiles/soil.tscn" id="3_f1508"]
+[ext_resource type="PackedScene" uid="uid://dwa751c1sxe74" path="res://Tiles/grass_tile.tscn" id="3_b6abu"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jowuc"]
 b = Vector2(0, 384)
@@ -12,21 +12,240 @@ b = Vector2(0, 384)
 [node name="LawnTiles" type="Node2D" parent="."]
 z_index = -1
 
-[node name="LawnGrassA" type="ColorRect" parent="LawnTiles"]
-offset_right = 64.0
-offset_bottom = 64.0
-color = Color(0, 0.4, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="GrassTile" parent="LawnTiles" instance=ExtResource("3_b6abu")]
 
-[node name="LawnGrassB" type="ColorRect" parent="LawnTiles"]
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 128.0
-color = Color(0, 0.501961, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="GrassTile2" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(0, 64)
+
+[node name="GrassTile3" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(0, 128)
+
+[node name="GrassTile4" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(0, 192)
+
+[node name="GrassTile5" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(0, 256)
+
+[node name="GrassTile6" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(0, 320)
+
+[node name="GrassTile7" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(64, 0)
+
+[node name="GrassTile8" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(64, 64)
+
+[node name="GrassTile9" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(64, 128)
+
+[node name="GrassTile10" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(64, 192)
+
+[node name="GrassTile11" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(64, 256)
+
+[node name="GrassTile12" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(64, 320)
+
+[node name="GrassTile13" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(128, 0)
+
+[node name="GrassTile14" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(128, 64)
+
+[node name="GrassTile15" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(128, 128)
+
+[node name="GrassTile16" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(128, 192)
+
+[node name="GrassTile17" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(128, 256)
+
+[node name="GrassTile18" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(128, 320)
+
+[node name="GrassTile19" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(192, 0)
+
+[node name="GrassTile20" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(192, 64)
+
+[node name="GrassTile21" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(192, 128)
+
+[node name="GrassTile22" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(192, 192)
+
+[node name="GrassTile23" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(192, 256)
+
+[node name="GrassTile24" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(192, 320)
+
+[node name="GrassTile25" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(256, 0)
+
+[node name="GrassTile26" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(256, 64)
+
+[node name="GrassTile27" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(256, 128)
+
+[node name="GrassTile28" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(256, 192)
+
+[node name="GrassTile29" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(256, 256)
+
+[node name="GrassTile30" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(256, 320)
+
+[node name="GrassTile31" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(320, 0)
+
+[node name="GrassTile32" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(320, 64)
+
+[node name="GrassTile33" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(320, 128)
+
+[node name="GrassTile34" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(320, 192)
+
+[node name="GrassTile35" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(320, 256)
+
+[node name="GrassTile36" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(320, 320)
+
+[node name="GrassTile37" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(384, 0)
+
+[node name="GrassTile38" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(384, 64)
+
+[node name="GrassTile39" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(384, 128)
+
+[node name="GrassTile40" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(384, 192)
+
+[node name="GrassTile41" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(384, 256)
+
+[node name="GrassTile42" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(384, 320)
+
+[node name="GrassTile43" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(448, 0)
+
+[node name="GrassTile44" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(448, 64)
+
+[node name="GrassTile45" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(448, 128)
+
+[node name="GrassTile46" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(448, 192)
+
+[node name="GrassTile47" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(448, 256)
+
+[node name="GrassTile48" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(448, 320)
+
+[node name="GrassTile49" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(512, 0)
+
+[node name="GrassTile50" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(512, 64)
+
+[node name="GrassTile51" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(512, 128)
+
+[node name="GrassTile52" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(512, 192)
+
+[node name="GrassTile53" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(512, 256)
+
+[node name="GrassTile54" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(512, 320)
+
+[node name="GrassTile55" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(576, 0)
+
+[node name="GrassTile56" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(576, 64)
+
+[node name="GrassTile57" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(576, 128)
+
+[node name="GrassTile58" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(576, 192)
+
+[node name="GrassTile59" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(576, 256)
+
+[node name="GrassTile60" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(576, 320)
+
+[node name="GrassTile61" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(640, 0)
+
+[node name="GrassTile62" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(640, 64)
+
+[node name="GrassTile63" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(640, 128)
+
+[node name="GrassTile64" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(640, 192)
+
+[node name="GrassTile65" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(640, 256)
+
+[node name="GrassTile66" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(640, 320)
+
+[node name="GrassTile67" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(704, 0)
+
+[node name="GrassTile68" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(704, 64)
+
+[node name="GrassTile69" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(704, 128)
+
+[node name="GrassTile70" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(704, 192)
+
+[node name="GrassTile71" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(704, 256)
+
+[node name="GrassTile72" parent="LawnTiles" instance=ExtResource("3_b6abu")]
+position = Vector2(704, 320)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(451, 192)
+
+[node name="TempZombies" type="Node2D" parent="."]
+
+[node name="Zombie" parent="TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(768, 224)
+
+[node name="Zombie4" parent="TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(800, 352)
+
+[node name="Zombie5" parent="TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(928, 32)
+
+[node name="Zombie2" parent="TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(744, 96)
+
+[node name="Zombie3" parent="TempZombies" instance=ExtResource("2_g3ubc")]
+position = Vector2(840, 224)
 
 [node name="LawnEdge" type="Area2D" parent="."]
 collision_layer = 32
@@ -36,40 +255,5 @@ collision_mask = 0
 position = Vector2(704, 0)
 shape = SubResource("SegmentShape2D_jowuc")
 
-[node name="TempZombies" type="Node2D" parent="LawnEdge"]
-
-[node name="Zombie" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
-position = Vector2(768, 224)
-
-[node name="Zombie4" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
-position = Vector2(800, 352)
-
-[node name="Zombie5" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
-position = Vector2(928, 32)
-
-[node name="Zombie2" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
-position = Vector2(744, 96)
-
-[node name="Zombie3" parent="LawnEdge/TempZombies" instance=ExtResource("2_g3ubc")]
-position = Vector2(840, 224)
-
-[node name="PlantItem" parent="." instance=ExtResource("2_hhgwb")]
-position = Vector2(224, 480)
-
-[node name="PlantItem2" parent="." instance=ExtResource("2_hhgwb")]
+[node name="Sprite2D" parent="." instance=ExtResource("2_67die")]
 position = Vector2(352, 480)
-
-[node name="PlantItem3" parent="." instance=ExtResource("2_hhgwb")]
-position = Vector2(416, 480)
-
-[node name="PlantItem4" parent="." instance=ExtResource("2_hhgwb")]
-position = Vector2(480, 480)
-
-[node name="Soil" parent="." instance=ExtResource("3_f1508")]
-position = Vector2(32, -32)
-
-[node name="Soil2" parent="." instance=ExtResource("3_f1508")]
-position = Vector2(32, 32)
-
-[node name="Soil3" parent="." instance=ExtResource("3_f1508")]
-position = Vector2(32, 96)

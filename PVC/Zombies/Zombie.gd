@@ -17,7 +17,7 @@ func _physics_process(delta):
 
 func _on_hit_box_activator_area_entered(area):
 	Hitbox.set_deferred("monitorable", true)
-	print("Hitbox On")
+	#print("Hitbox On")
 
 
 func _on_hit_box_area_entered(area):
