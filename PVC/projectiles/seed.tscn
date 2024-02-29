@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://s32msuubohna"]
+
+[ext_resource type="Script" path="res://projectiles/seed.gd" id="2_n2tfs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_10baa"]
+font_size = 64
+
+[node name="Seed" type="CharacterBody2D"]
+script = ExtResource("2_n2tfs")
+
+[node name="Seed" type="Label" parent="."]
+modulate = Color(0.823529, 0.831373, 0.803922, 1)
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.25, 0.25)
+text = "+5"
+label_settings = SubResource("LabelSettings_10baa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lifetime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

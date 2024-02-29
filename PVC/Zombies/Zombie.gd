@@ -3,7 +3,7 @@ extends CharacterBody2D
 var Health = 8
 @onready var Hitbox = $HitBox
 
-const SPEED = 20.0 #20 seems good
+const SPEED = 10.0 #20 seems good
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.

@@ -3,7 +3,7 @@ extends Sprite2D
 var dragging = false
 var OriginalPosition = Vector2.ZERO
 var MouseIn = false
-var PlantScene = preload("res://plants/basic_plant.tscn")
+var PlantScene = preload("res://plants/CurrencyPlant.tscn")
 var plantable = false
 
 func _ready():
@@ -11,7 +11,7 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_pressed("Click") and MouseIn == true:
-		if Global.sun >= 10:
+		if Global.sun >= 5:
 			dragging = true
 		else:
 			print("Not enough seeds")
@@ -40,7 +40,7 @@ func SpawnPlant(position):
 	
 	if plantable == true:
 		get_tree().get_root().add_child(PlantInstance)
-		Global.sun -= 10
+		Global.sun -= 5
 		plantable = false
 	else:
 		print("unable to plant")

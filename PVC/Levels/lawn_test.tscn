@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2hqo2deamq8q"]
+[gd_scene load_steps=7 format=3 uid="uid://b2hqo2deamq8q"]
 
-[ext_resource type="PackedScene" uid="uid://cs4sktq5c13gu" path="res://Items/sprite_2d.tscn" id="2_67die"]
+[ext_resource type="PackedScene" uid="uid://cs4sktq5c13gu" path="res://Items/PeaShooterItem.tscn" id="2_67die"]
 [ext_resource type="PackedScene" uid="uid://conjdg42oly5a" path="res://Zombies/zombie.tscn" id="2_g3ubc"]
 [ext_resource type="PackedScene" uid="uid://dwa751c1sxe74" path="res://Tiles/grass_tile.tscn" id="3_b6abu"]
+[ext_resource type="PackedScene" uid="uid://bhpuylkucl8ii" path="res://UI/battle_ui.tscn" id="4_0bta1"]
+[ext_resource type="PackedScene" uid="uid://b74a28pf0ixq" path="res://Items/SunFlowerItem.tscn" id="5_4rvuk"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jowuc"]
 b = Vector2(0, 384)
@@ -11,6 +13,7 @@ b = Vector2(0, 384)
 
 [node name="LawnTiles" type="Node2D" parent="."]
 z_index = -1
+z_as_relative = false
 
 [node name="GrassTile" parent="LawnTiles" instance=ExtResource("3_b6abu")]
 
@@ -228,7 +231,8 @@ position = Vector2(704, 256)
 position = Vector2(704, 320)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(451, 192)
+position = Vector2(350, 179)
+zoom = Vector2(2, 2)
 
 [node name="TempZombies" type="Node2D" parent="."]
 
@@ -256,4 +260,19 @@ position = Vector2(704, 0)
 shape = SubResource("SegmentShape2D_jowuc")
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_67die")]
-position = Vector2(352, 480)
+position = Vector2(352, 416)
+
+[node name="BattleUI" parent="." instance=ExtResource("4_0bta1")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="PeaShooterItem" parent="." instance=ExtResource("5_4rvuk")]
+position = Vector2(288, 416)

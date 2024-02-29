@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74a28pf0ixq"]
+
+[ext_resource type="Texture2D" uid="uid://bunncuafkwd5u" path="res://icon.svg" id="1_gqc80"]
+[ext_resource type="Script" path="res://Items/SunFlowerItem.gd" id="2_rji56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtx5l"]
+size = Vector2(128, 128)
+
+[node name="PeaShooterItem" type="Sprite2D"]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_gqc80")
+script = ExtResource("2_rji56")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gtx5l")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
